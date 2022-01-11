@@ -7,6 +7,7 @@ public class ModelClass {
 
     }
 
+    //método nuevo
     @Override
     public String toString() {
         return "ModelClass{}";
