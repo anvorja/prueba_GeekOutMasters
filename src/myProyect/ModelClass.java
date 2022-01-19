@@ -9,7 +9,6 @@ public class ModelClass {
   private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9,
       dado10;
   private int bandera;
-  private int[] caras;
   private Dado[] array_dadosActivados;
   private Dado[] array_dadosInactivos;
   private Dado[] array_dadosUtilizados;
@@ -51,9 +50,6 @@ public class ModelClass {
     array_dadosActivados[4] = dado5;
     array_dadosActivados[5] = dado6;
     array_dadosActivados[6] = dado7;
-    //        array_dadosActivados[7] = dado8;
-    //        array_dadosActivados[8] = dado9;
-    //        array_dadosActivados[9] = dado10;
 
     System.out.println("array_dadosActivados");
     for (int i = 0; i < 7; i++) {
@@ -76,9 +72,7 @@ public class ModelClass {
   }
 
   public void iniciar_array_dadosUtilizados() {
-    //        array_dadosInactivos[0] = dado8;
-    //        array_dadosInactivos[1] = dado9;
-    //        array_dadosInactivos[2] = dado10;
+
     System.out.println("array_dadosInactivos");
     for (int i = 0; i <= 2; i++) {
       System.out.println(array_dadosUtilizados[i].getCara() +
@@ -86,48 +80,8 @@ public class ModelClass {
     }
   }
 
-  public void lanzamientoInicial() {
-    //        caras[0] = dado1.getCara();
-    //        caras[1] = dado2.getCara();
-    //        caras[2] = dado3.getCara();
-    //        caras[3] = dado4.getCara();
-    //        caras[4] = dado5.getCara();
-    //        caras[5] = dado6.getCara();
-    //        caras[6] = dado7.getCara();
-    //        caras[7] = dado8.getCara();
-    //        caras[8] = dado9.getCara();
-    //        caras[9] = dado10.getCara();
-  }
-
-  public void determinarJuego() {
-
-    for (int i = 0; i < array_dadosActivados.length; i++) {
-      if (array_dadosActivados[i].getCara() == 1) {
-        System.out.println("usó meeple");
-        array_dadosUtilizados[i] = array_dadosActivados[i];
-      }
-      if (array_dadosActivados[i].getCara() == 2) {
-        System.out.println("usó cohete");
-        array_dadosUtilizados[i] = array_dadosActivados[i];
-      }
-      if (array_dadosActivados[i].getCara() == 3) {
-        System.out.println("usó superH");
-        array_dadosUtilizados[i] = array_dadosActivados[i];
-      }
-      if (array_dadosActivados[i].getCara() == 4) {
-        System.out.println("usó Dragón");
-        array_dadosUtilizados[i] = array_dadosActivados[i];
-      }
-      if (array_dadosActivados[i].getCara() == 5) {
-        System.out.println("usó corazón");
-        array_dadosUtilizados[i] = array_dadosActivados[i];
-      }
-      if (array_dadosActivados[i].getCara() == 6) {
-        System.out.println("usó 42");
-        array_dadosUtilizados[i] = array_dadosActivados[i];
-      }
-    }
-  }
+//  public void determinarJuego() {
+//  }
 
   public Dado[] getDadosActivados() { return array_dadosActivados; }
 
@@ -139,10 +93,12 @@ public class ModelClass {
       System.out.println("usó meeple");
     }
     if (getDadosActivados()[n].getCara() == 2) {
+
       System.out.println("usó nave");
     }
     if (getDadosActivados()[n].getCara() == 3) {
       System.out.println("usó superH");
+
     }
     if (getDadosActivados()[n].getCara() == 4) {
       System.out.println("usó dragón");
