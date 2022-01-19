@@ -2,12 +2,12 @@ package myProyect;
 
 /**
  * @author Carlos Andrés Borja - borja.carlos@correounivalle.edu.co
- * @version @version v.1.0.0 date:30/11/2021
+ *         Deisy Catalina Melo - deisy.melo@correounivalle.edu.co
+ * @version @version v.1.0.2 date: 19/01/2022
  */
 public class ModelClass {
 
-  private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9,
-      dado10;
+  private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9, dado10;
   private int bandera;
   private Dado[] array_dadosActivados;
   private Dado[] array_dadosInactivos;
@@ -54,7 +54,7 @@ public class ModelClass {
     System.out.println("array_dadosActivados");
     for (int i = 0; i < 7; i++) {
       System.out.println(array_dadosActivados[i].getCara() +
-                         " op: " + array_dadosActivados[i].getCaraOpuesta());
+              " op: " + array_dadosActivados[i].getCaraOpuesta());
     }
   }
 
@@ -67,7 +67,7 @@ public class ModelClass {
     System.out.println("array_dadosInactivos");
     for (int i = 0; i <= 2; i++) {
       System.out.println(array_dadosInactivos[i].getCara() +
-                         " op: " + array_dadosInactivos[i].getCaraOpuesta());
+              " op: " + array_dadosInactivos[i].getCaraOpuesta());
     }
   }
 
@@ -76,7 +76,7 @@ public class ModelClass {
     System.out.println("array_dadosInactivos");
     for (int i = 0; i <= 2; i++) {
       System.out.println(array_dadosUtilizados[i].getCara() +
-                         " op: " + array_dadosUtilizados[i].getCaraOpuesta());
+              " op: " + array_dadosUtilizados[i].getCaraOpuesta());
     }
   }
 
