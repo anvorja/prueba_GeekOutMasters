@@ -12,6 +12,7 @@ public class ModelClass {
   private Dado[] array_dadosActivados;
   private Dado[] array_dadosInactivos;
   private Dado[] array_dadosUtilizados;
+  private int variableModel;
 
   /**
    * Class Constructor
@@ -72,40 +73,71 @@ public class ModelClass {
 
   public void iniciar_array_dadosUtilizados() {
 
-    System.out.println("array_dadosInactivos");
-    for (int i = 0; i <= 2; i++) {
-      System.out.println(array_dadosUtilizados[i].getCara() +
-              " op: " + array_dadosUtilizados[i].getCaraOpuesta());
-    }
+
   }
 
-//  public void determinarJuego() {
-//  }
-
-  public Dado[] getDadosActivados() { return array_dadosActivados; }
+  public Dado[] getDadosActivados() {
+    return array_dadosActivados;
+  }
 
   public Dado[] getDadosInactivos() { return array_dadosInactivos; }
 
-  public void validarBotonesAccionados(int n) {
+  public void eliminarElementoDeArrayDadosInactivos(){
 
-    if (getDadosActivados()[n].getCara() == 1) {
+    Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
+    System.arraycopy(array_dadosInactivos, 1, auxDadosInactivos, 0, array_dadosInactivos.length - 1);
+    array_dadosInactivos = auxDadosInactivos;
+
+//    Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
+//    for(int i=0; i<array_dadosInactivos.length-1; i++){
+//      auxDadosInactivos[i]= array_dadosInactivos[i+1];
+//    }
+//    array_dadosActivados = auxDadosInactivos;
+
+  }
+
+  public void meterEnArrayDadosUtilizados(int posicion){
+    int contador =0;
+    array_dadosUtilizados[contador] = array_dadosActivados[posicion];
+    contador += 1;
+  }
+
+  public void validarBotonesAccionados(int posicionArrayDadosActivados) {
+
+    if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 1) {
+
+      meterEnArrayDadosUtilizados(posicionArrayDadosActivados);
+      array_dadosActivados[posicionArrayDadosActivados] = array_dadosInactivos[0];
+      eliminarElementoDeArrayDadosInactivos();
+
+      array_dadosActivados[posicionArrayDadosActivados].setCara();
+      array_dadosActivados[posicionArrayDadosActivados].setCaraOpuesta();
+
       System.out.println("usó meeple");
+
+      //prueba en consola
+      for(int i = 0; i < array_dadosActivados.length; i++){
+        System.out.println(array_dadosActivados[i].getNameFace());
+      }
+
     }
-    if (getDadosActivados()[n].getCara() == 2) {
+    if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 2) {
 
       System.out.println("usó nave");
     }
-    if (getDadosActivados()[n].getCara() == 3) {
+    if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 3) {
+//      array_dadosActivados[n].getCaraOpuesta();
+
       System.out.println("usó superH");
 
     }
-    if (getDadosActivados()[n].getCara() == 4) {
+    if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 4) {
       System.out.println("usó dragón");
     }
-    if (getDadosActivados()[n].getCara() == 5) {
+    if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 5) {
       System.out.println("usó corazón");
     }
-    if (getDadosActivados()[n].getCara() == 6) {
+    if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 6) {
       System.out.println("usó 42");
     }
   }

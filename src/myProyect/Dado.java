@@ -12,6 +12,7 @@ public class Dado {
 
   private int cara, caraOpuesta;
   private String caraNombre;
+  private int variablePrueba;
 
   public Dado() {
     setCara();
@@ -113,4 +114,9 @@ public class Dado {
   //            sumarPunto();
   //        }
   //    }
+
+  public void printDesdeDado(){
+    variablePrueba = 5000;
+  }
+
 }

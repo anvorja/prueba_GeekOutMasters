@@ -21,7 +21,7 @@ public class GUI extends JFrame {
           dado9A, dado10A, dado8I, dado9I, dado10I, dado1U, dado2U, dado3U, dado4U,
           dado5U, dado6U, dado7U, dado8U, dado9U, dado10U;
   private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6,
-          boton7;
+          boton7, boton8, boton9, boton10;
   private JPanel panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
           panelResultados, panelLanzar;
   private ImageIcon imageDado;
@@ -187,6 +187,7 @@ public class GUI extends JFrame {
 
   public void meterBotonesActivos(Dado[] reciboCarasBotonesActivos) {
 
+
     boton1 = new JButton();
     boton1.addActionListener(escucha);
     boton1.setPreferredSize(new Dimension(146, 146));
@@ -263,7 +264,46 @@ public class GUI extends JFrame {
     boton7.setIcon(imageDado);
     boton7.setBackground(Color.WHITE);
     panelDadosActivados.add(boton7);
+
   }
+
+  public void meterBotonesInactivos(Dado[] reciboArrayInactivos) {
+
+    boton8 = new JButton();
+    boton8.addActionListener(escucha);
+    boton8.setPreferredSize(new Dimension(37, 37));
+    boton8.setOpaque(true);
+    imageDado = new ImageIcon(getClass().getResource(
+            "/recursos/" + reciboArrayInactivos[0].getCara() +
+                    ". cara dado 37p.jpg"));
+    boton8.setIcon(imageDado);
+    boton8.setBackground(Color.WHITE);
+    panelDadosInactivos.add(boton8);
+
+    boton9 = new JButton();
+    boton9.addActionListener(escucha);
+    boton9.setPreferredSize(new Dimension(37, 37));
+    boton9.setOpaque(true);
+    imageDado = new ImageIcon(getClass().getResource(
+            "/recursos/" + reciboArrayInactivos[1].getCara() +
+                    ". cara dado 37p.jpg"));
+    boton9.setIcon(imageDado);
+    boton9.setBackground(Color.WHITE);
+    panelDadosInactivos.add(boton9);
+
+    boton10 = new JButton();
+    boton10.addActionListener(escucha);
+    boton10.setPreferredSize(new Dimension(37, 37));
+    boton10.setOpaque(true);
+    imageDado = new ImageIcon(getClass().getResource(
+            "/recursos/" + reciboArrayInactivos[2].getCara() +
+                    ". cara dado 37p.jpg"));
+    boton10.setIcon(imageDado);
+    boton10.setBackground(Color.WHITE);
+    panelDadosInactivos.add(boton10);
+
+  }
+
 
   public static void main(String[] args) {
     EventQueue.invokeLater(() -> { GUI miProjectGUI = new GUI(); });
@@ -300,18 +340,19 @@ public class GUI extends JFrame {
         }
 
         // dados inactivos
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/" + modelClass.getDadosInactivos()[0].getCara() +
-                        ". cara dado 50p.jpg"));
-        dado8I.setIcon(imageDado);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/" + modelClass.getDadosInactivos()[1].getCara() +
-                        ". cara dado 50p.jpg"));
-        dado9I.setIcon(imageDado);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/" + modelClass.getDadosInactivos()[2].getCara() +
-                        ". cara dado 50p.jpg"));
-        dado10I.setIcon(imageDado);
+        meterBotonesInactivos(modelClass.getDadosInactivos());
+//        imageDado = new ImageIcon(getClass().getResource(
+//                "/recursos/" + modelClass.getDadosInactivos()[0].getCara() +
+//                        ". cara dado 50p.jpg"));
+//        dado8I.setIcon(imageDado);
+//        imageDado = new ImageIcon(getClass().getResource(
+//                "/recursos/" + modelClass.getDadosInactivos()[1].getCara() +
+//                        ". cara dado 50p.jpg"));
+//        dado9I.setIcon(imageDado);
+//        imageDado = new ImageIcon(getClass().getResource(
+//                "/recursos/" + modelClass.getDadosInactivos()[2].getCara() +
+//                        ". cara dado 50p.jpg"));
+//        dado10I.setIcon(imageDado);
 
         panelDadosUtilizados.removeAll();
 
@@ -322,7 +363,14 @@ public class GUI extends JFrame {
       //escuha para los botones con su validación
       if (e.getSource() == boton1) {
         modelClass.validarBotonesAccionados(0);
+        //actualizarBotonesActivos(modelClass.getDadosActivados());
         System.out.println("Boton 1");
+
+//        System.out.println("Boton 1 : Nueva Cara es: "+modelClass.getDadosActivados()[0].getNameFace());
+//        System.out.println("AHORA ES CARA: "+modelClass.validarBotonesAccionados()[];
+//        mandarBotonAInactivos(modelClass.getDadosActivados()[0].getCara());
+//        modelClass.getDadosActivados()[0].setCara();
+
       }
       if (e.getSource() == boton2) {
         modelClass.validarBotonesAccionados(1);
