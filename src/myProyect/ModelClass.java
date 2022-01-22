@@ -28,7 +28,6 @@ public class ModelClass {
     dado8 = new Dado();
     dado9 = new Dado();
     dado10 = new Dado();
-    caras = new int[10];
 
     array_dadosActivados = new Dado[7];
     iniciar_array_dadosActivados();
