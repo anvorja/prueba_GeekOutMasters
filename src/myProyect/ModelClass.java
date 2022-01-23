@@ -86,27 +86,54 @@ public class ModelClass {
 
   public Dado[] getDadosInactivos() { return array_dadosInactivos; }
 
-  public void validarBotonesAccionados(int n) {
+  public void validarBotonesAccionados(int n, int m) {
 
-    if (getDadosActivados()[n].getCara() == 1) {
-      System.out.println("usó meeple");
-    }
-    if (getDadosActivados()[n].getCara() == 2) {
+      if (m == 1) {
+          switch (getDadosActivados()[n].getCara()) {
+              case 1:
+                  System.out.println("usó meeple");
+                  break;
+              case 2:
+                  System.out.println("usó nave");
+                  break;
+              case 3:
+                  System.out.println("usó superH");
+                  break;
+              case 4:
+                  System.out.println("usó dragón");
+                  break;
+              case 5:
+                  System.out.println("usó corazón");
+                  break;
+              case 6:
+                  System.out.println("usó 42");
+                  break;
+          }
+      }
+      if (m == 2) {
 
-      System.out.println("usó nave");
-    }
-    if (getDadosActivados()[n].getCara() == 3) {
-      System.out.println("usó superH");
-
-    }
-    if (getDadosActivados()[n].getCara() == 4) {
-      System.out.println("usó dragón");
-    }
-    if (getDadosActivados()[n].getCara() == 5) {
-      System.out.println("usó corazón");
-    }
-    if (getDadosActivados()[n].getCara() == 6) {
-      System.out.println("usó 42");
-    }
+          switch (getDadosInactivos()[n].getCara()) {
+              case 1:
+                  System.out.println("usó meeple");
+                  break;
+              case 2:
+                  System.out.println("usó nave");
+                  break;
+              case 3:
+                  System.out.println("usó superH");
+                  break;
+              case 4:
+                  System.out.println("usó dragón");
+                  break;
+              case 5:
+                  System.out.println("usó corazón");
+                  break;
+              case 6:
+                  System.out.println("usó 42");
+                  break;
+          }
+      }
   }
+
+
 }
