@@ -21,7 +21,7 @@ public class GUI extends JFrame {
           dado9A, dado10A, dado8I, dado9I, dado10I, dado1U, dado2U, dado3U, dado4U,
           dado5U, dado6U, dado7U, dado8U, dado9U, dado10U;
   private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6,
-          boton7;
+          boton7, boton8A, boton9A, boton10A;
   private JPanel panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
           panelResultados, panelLanzar;
   private ImageIcon imageDado;
@@ -187,82 +187,83 @@ public class GUI extends JFrame {
 
   public void meterBotonesActivos(Dado[] reciboCarasBotonesActivos) {
 
-    boton1 = new JButton();
-    boton1.addActionListener(escucha);
-    boton1.setPreferredSize(new Dimension(146, 146));
-    boton1.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[0].getCara() +
-                    ". 146x146.png"));
-    boton1.setIcon(imageDado);
-    boton1.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton1);
+      boton1 = new JButton();
+      boton1.addActionListener(escucha);
+      boton1.setPreferredSize(new Dimension(146, 146));
+      boton1.setContentAreaFilled(false);
+      boton1.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[0].getCara() +
+                      ". 146x146.png"));
+      boton1.setIcon(imageDado);
+      panelDadosActivados.add(boton1);
 
-    boton2 = new JButton();
-    boton2.addActionListener(escucha);
-    boton2.setPreferredSize(new Dimension(146, 146));
-    boton2.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/" + reciboCarasBotonesActivos[1].getCara() +
-                    ". cara dado.jpg"));
-    boton2.setIcon(imageDado);
-    boton2.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton2);
+      boton2 = new JButton();
+      boton2.addActionListener(escucha);
+      boton2.setPreferredSize(new Dimension(146, 146));
+      boton2.setContentAreaFilled(false);
+      boton2.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[1].getCara() +
+                      ". 146x146.png"));
+      boton2.setIcon(imageDado);
+      panelDadosActivados.add(boton2);
 
-    boton3 = new JButton();
-    boton3.addActionListener(escucha);
-    boton3.setPreferredSize(new Dimension(146, 146));
-    boton3.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/" + reciboCarasBotonesActivos[2].getCara() +
-                    ". cara dado.jpg"));
-    boton3.setIcon(imageDado);
-    boton3.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton3);
+      boton3 = new JButton();
+      boton3.addActionListener(escucha);
+      boton3.setPreferredSize(new Dimension(146, 146));
+      boton3.setContentAreaFilled(false);
+      boton3.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[2].getCara() +
+                      ". 146x146.png"));
+      boton3.setIcon(imageDado);
+      panelDadosActivados.add(boton3);
 
-    boton4 = new JButton();
-    boton4.addActionListener(escucha);
-    boton4.setPreferredSize(new Dimension(146, 146));
-    boton4.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/" + reciboCarasBotonesActivos[3].getCara() +
-                    ". cara dado.jpg"));
-    boton4.setIcon(imageDado);
-    boton4.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton4);
+      boton4 = new JButton();
+      boton4.addActionListener(escucha);
+      boton4.setPreferredSize(new Dimension(146, 146));
+      boton4.setContentAreaFilled(false);
+      boton4.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[3].getCara() +
+                      ". 146x146.png"));
+      boton4.setIcon(imageDado);
+      panelDadosActivados.add(boton4);
 
-    boton5 = new JButton();
-    boton5.addActionListener(escucha);
-    boton5.setPreferredSize(new Dimension(146, 146));
-    boton5.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/" + reciboCarasBotonesActivos[4].getCara() +
-                    ". cara dado.jpg"));
-    boton5.setIcon(imageDado);
-    boton5.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton5);
+      boton5 = new JButton();
+      boton5.addActionListener(escucha);
+      boton5.setPreferredSize(new Dimension(146, 146));
+      boton5.setContentAreaFilled(false);
+      boton5.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[4].getCara() +
+                      ". 146x146.png"));
+      boton5.setIcon(imageDado);
+      panelDadosActivados.add(boton5);
 
-    boton6 = new JButton();
-    boton6.addActionListener(escucha);
-    boton6.setPreferredSize(new Dimension(146, 146));
-    boton6.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/" + reciboCarasBotonesActivos[5].getCara() +
-                    ". cara dado.jpg"));
-    boton6.setIcon(imageDado);
-    boton6.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton6);
+      boton6 = new JButton();
+      boton6.addActionListener(escucha);
+      boton6.setPreferredSize(new Dimension(146, 146));
+      boton6.setContentAreaFilled(false);
+      boton6.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[5].getCara() +
+                      ". 146x146.png"));
+      boton6.setIcon(imageDado);
+      panelDadosActivados.add(boton6);
 
-    boton7 = new JButton();
-    boton7.addActionListener(escucha);
-    boton7.setPreferredSize(new Dimension(146, 146));
-    boton7.setOpaque(true);
-    imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/" + reciboCarasBotonesActivos[6].getCara() +
-                    ". cara dado.jpg"));
-    boton7.setIcon(imageDado);
-    boton7.setBackground(Color.WHITE);
-    panelDadosActivados.add(boton7);
+      boton7 = new JButton();
+      boton7.addActionListener(escucha);
+      boton7.setPreferredSize(new Dimension(146, 146));
+      boton7.setContentAreaFilled(false);
+      boton7.setBorderPainted(false);
+      imageDado = new ImageIcon(getClass().getResource(
+              "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[6].getCara() +
+                      ". 146x146.png"));
+      boton7.setIcon(imageDado);
+      panelDadosActivados.add(boton7);
+
   }
 
   public static void main(String[] args) {
