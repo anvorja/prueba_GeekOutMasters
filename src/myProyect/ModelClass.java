@@ -135,5 +135,14 @@ public class ModelClass {
       }
   }
 
+  public  void accionarBoton(int n, int cara){
 
+      switch (cara){
+          case 1: array_dadosActivados[n]= new Dado();
+                  break;
+          case 4:
+
+      }
+
+  }
 }

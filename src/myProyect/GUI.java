@@ -24,6 +24,8 @@ public class GUI extends JFrame {
     boton9, boton10, boton8A, boton9A, boton10A;
   private JPanel panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
           panelResultados, panelLanzar;
+  private int opcionPanel;
+  private boolean destruir;
   private ImageIcon imageDado;
   private JTextArea mensajesSalida, resultadoDados;
   private JSeparator separator;
@@ -340,15 +342,18 @@ public class GUI extends JFrame {
 
         // dados inactivos
         panelDadosInactivos.removeAll();
-
         meterDadosInactivos(modelClass.getDadosInactivos());
-
         panelDadosUtilizados.removeAll();
 
+        opcionPanel=1; // si es 1: elegir dado de panel de Dados Activos, si es 2: accionar dado, si es 3: adicionar
+          // dado inactivo a panel de Dados Activos
+        destruir=false; //requerido para accion de la nave
         revalidate();
         repaint();
+
       }
 
+      /**  ---------------------------------------------------------------------------------
       //escuha para los botones con su validación
       if (e.getSource() == boton1) {
         modelClass.validarBotonesAccionados(0);
@@ -378,6 +383,180 @@ public class GUI extends JFrame {
         modelClass.validarBotonesAccionados(6);
         System.out.println("Boton 7");
       }
+      --------------------------------------------------------------------------------*/
+        switch (opcionPanel){
+            case 1:
+                if (e.getSource() == boton1) {
+                    if(destruir==true||
+                            modelClass.getDadosActivados()[0].getCara()!=4 && modelClass.getDadosActivados()[0].getCara()!=6){
+
+                        System.out.println("Boton 1");
+                        modelClass.validarBotonesAccionados(0,1);
+                        boton1.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[0].getCara() +
+                                        ".png"));
+                        boton1.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton1);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[0].getCara());
+                        e.setSource(null);
+
+                        opcionPanel=2;
+                    }
+                } else if (e.getSource() == boton2) {
+                    if (destruir==true||
+                            modelClass.getDadosActivados()[1].getCara() != 4 && modelClass.getDadosActivados()[1].getCara() != 6) {
+
+                        System.out.println("Boton 2");
+                        modelClass.validarBotonesAccionados(1,1);
+                        boton2.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[1].getCara() +
+                                        ".png"));
+                        boton2.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton2);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[1].getCara());
+                        e.setSource(null);
+
+                        opcionPanel=2;
+                    }
+                } else if (e.getSource() == boton3) {
+                    if (destruir==true||
+                            modelClass.getDadosActivados()[2].getCara() != 4 && modelClass.getDadosActivados()[2].getCara() != 6) {
+
+                        System.out.println("Boton 3");
+                        modelClass.validarBotonesAccionados(2,1);
+                        boton3.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[2].getCara() +
+                                        ".png"));
+                        boton3.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton3);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[2].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                } else if (e.getSource() == boton4) {
+                    if(destruir==true||
+                            modelClass.getDadosActivados()[3].getCara()!=4 && modelClass.getDadosActivados()[3].getCara()!=6){
+
+                        System.out.println("Boton 4");
+                        modelClass.validarBotonesAccionados(3,1);
+                        boton4.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[3].getCara() +
+                                        ".png"));
+                        boton4.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton4);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[3].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                }else if (e.getSource() == boton5) {
+                    if(destruir==true||
+                            modelClass.getDadosActivados()[4].getCara()!=4 && modelClass.getDadosActivados()[4].getCara()!=6) {
+
+                        System.out.println("Boton 5");
+                        modelClass.validarBotonesAccionados(4,1);
+                        boton5.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[4].getCara() +
+                                        ".png"));
+                        boton5.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton5);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[4].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                } else if (e.getSource() == boton6) {
+                    if (destruir==true||
+                            modelClass.getDadosActivados()[5].getCara() != 4 && modelClass.getDadosActivados()[5].getCara() != 6) {
+
+                        System.out.println("Boton 6");
+                        modelClass.validarBotonesAccionados(5,1);
+                        boton6.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[5].getCara() +
+                                        ".png"));
+                        boton6.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton6);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[5].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                }else if (e.getSource() == boton7) {
+                    if(destruir==true||
+                            modelClass.getDadosActivados()[6].getCara()!=4 && modelClass.getDadosActivados()[6].getCara()!=6){
+
+                        System.out.println("Boton 7");
+                        modelClass.validarBotonesAccionados(6,1);
+
+                        boton7.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[6].getCara() +
+                                        ".png"));
+                        boton7.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton7);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosActivados()[6].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                }else if (e.getSource() == boton8A) {
+                    if(destruir==true||
+                            modelClass.getDadosInactivos()[0].getCara()!=4 && modelClass.getDadosInactivos()[0].getCara()!=6){
+
+                        System.out.println("Boton 8A");
+                        modelClass.validarBotonesAccionados(0,2);
+                        boton8A.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosInactivos()[0].getCara() +
+                                        ".png"));
+                        boton8A.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton8A);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosInactivos()[0].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                }else if (e.getSource() == boton9A) {
+                    if(destruir==true||
+                            modelClass.getDadosInactivos()[1].getCara()!=4 && modelClass.getDadosInactivos()[1].getCara()!=6){
+
+                        System.out.println("Boton 9A");
+                        modelClass.validarBotonesAccionados(1,2);
+                        boton9A.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosInactivos()[1].getCara() +
+                                        ".png"));
+                        boton9A.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton9A);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosInactivos()[1].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                }else if (e.getSource() == boton10A) {
+                    if(destruir==true||
+                            modelClass.getDadosInactivos()[2].getCara()!=4 && modelClass.getDadosInactivos()[2].getCara()!=6){
+
+                        System.out.println("Boton 10A");
+                        modelClass.validarBotonesAccionados(2,2);
+                        boton10A.setPreferredSize(new Dimension(69, 60));
+                        imageDado = new ImageIcon(getClass().getResource(
+                                "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosInactivos()[2].getCara() +
+                                        ".png"));
+                        boton10A.setIcon(imageDado);
+                        panelDadosUtilizados.add(boton10A);
+                        System.out.println("La cara del boton usado es: "+modelClass.getDadosInactivos()[2].getCara());
+                        e.setSource(null);
+                        opcionPanel=2;
+                    }
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+
     }
   }
 }
