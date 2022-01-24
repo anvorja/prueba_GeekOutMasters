@@ -1,5 +1,7 @@
 package myProyect;
 
+import java.util.Scanner;
+
 /**
  * @author Carlos Andrés Borja - borja.carlos@correounivalle.edu.co
  *         Deisy Catalina Melo - deisy.melo@correounivalle.edu.co
@@ -96,6 +98,16 @@ public class ModelClass {
 
   }
 
+  public void eliminarDadoDeArrayDadosActivados(int dadoSeleccionado){
+
+    Dado[] auxArray = new Dado[array_dadosActivados.length-1];
+
+
+    for(int i=dadoSeleccionado; i<array_dadosActivados.length-1; i++){
+      array_dadosActivados[dadoSeleccionado]=array_dadosActivados[dadoSeleccionado+1];
+    }
+  }
+
   public void meterDadoEnArrayDadosUtilizados(int posicion){
     int contador =0;
     array_dadosUtilizados[contador] = array_dadosActivados[posicion];
@@ -109,31 +121,42 @@ public class ModelClass {
 
   public void validarBotonesAccionados(int posicionArrayDadosActivados) {
 
+//pediente parámetro del dado seleccionado
+    //MEEPLE
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 1) {
 
       meterDadoEnArrayDadosUtilizados(posicionArrayDadosActivados);
+      eliminarDadoDeArrayDadosActivados(posicionArrayDadosActivados);//en GUI se debe actualizar esto en los paneles
+      Scanner entrada = new Scanner(System.in);//en GUI pedir entrada en un Label y pasarla como parámetro
+      System.out.print("cual dado? ");
+      int auxCualDado = entrada.nextInt();
 
-      array_dadosActivados[posicionArrayDadosActivados].setCara();
+      array_dadosActivados[auxCualDado].setCara();
 
-      System.out.println("usó meeple");
+
 
       //prueba en consola
       for(int i = 0; i < array_dadosActivados.length; i++){
         System.out.println(array_dadosActivados[i].getNameFace());
       }
-
+      System.out.println("usó meeple");
     }
+
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 2) {
 
       System.out.println("usó nave");
     }
+    //SUPER HERO
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 3) {
-//      array_dadosActivados[n].getCaraOpuesta();
+      meterDadoEnArrayDadosUtilizados(posicionArrayDadosActivados);
+      int caraOpuesta = array_dadosActivados[posicionArrayDadosActivados].getCaraOpuesta();
+      array_dadosActivados[posicionArrayDadosActivados].setCaraAlGirarDado(caraOpuesta);
 
       System.out.println("usó superH");
 
     }
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 4) {
+
       System.out.println("usó dragón");
     }
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 5) {
@@ -144,8 +167,18 @@ public class ModelClass {
 
 
       System.out.println("Usó corazón");
-
+      //prueba en consola
+      System.out.println("ACTIVADOS");
+      for(int i = 0; i < array_dadosActivados.length; i++){
+        System.out.println(array_dadosActivados[i].getNameFace());
+      }
+      System.out.println("INACTIVOS");
+      for(int i = 0; i < array_dadosInactivos.length; i++){
+        System.out.println(array_dadosInactivos[i].getNameFace());
+      }
     }
+
+
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 6) {
       System.out.println("usó 42");
     }

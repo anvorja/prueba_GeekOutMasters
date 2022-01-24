@@ -27,6 +27,12 @@ public class Dado {
 
   }
 
+  public void setCaraAlGirarDado(int nuevaCara ){
+    cara = nuevaCara;
+    setCaraOpuesta();
+    setNameFace();
+  }
+
   public void setCaraOpuesta() {
 
     if (cara == 1) {

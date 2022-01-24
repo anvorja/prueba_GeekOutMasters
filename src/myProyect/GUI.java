@@ -366,33 +366,33 @@ public class GUI extends JFrame {
       if (e.getSource() == boton1) {
         modelClass.validarBotonesAccionados(0);
         //actualizarBotonesActivos(modelClass.getDadosActivados());
-        System.out.println("Boton 1");
+        System.out.println("---Boton 1");
         actualizarPaneles();
 
       }
       if (e.getSource() == boton2) {
         modelClass.validarBotonesAccionados(1);
-        System.out.println("Boton 2");
+        System.out.println("---Boton 2");
       }
       if (e.getSource() == boton3) {
         modelClass.validarBotonesAccionados(2);
-        System.out.println("Boton 3");
+        System.out.println("---Boton 3");
       }
       if (e.getSource() == boton4) {
         modelClass.validarBotonesAccionados(3);
-        System.out.println("Boton 4");
+        System.out.println("---Boton 4");
       }
       if (e.getSource() == boton5) {
         modelClass.validarBotonesAccionados(4);
-        System.out.println("Boton 5");
+        System.out.println("---Boton 5");
       }
       if (e.getSource() == boton6) {
         modelClass.validarBotonesAccionados(5);
-        System.out.println("Boton 6");
+        System.out.println("---Boton 6");
       }
       if (e.getSource() == boton7) {
         modelClass.validarBotonesAccionados(6);
-        System.out.println("Boton 7");
+        System.out.println("---Boton 7");
       }
     }
   }
