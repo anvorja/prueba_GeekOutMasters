@@ -82,7 +82,7 @@ public class ModelClass {
 
   public Dado[] getDadosInactivos() { return array_dadosInactivos; }
 
-  public void eliminarElementoDeArrayDadosInactivos(){
+  public void eliminarDadoDeArrayDadosInactivos(){
 
     Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
     System.arraycopy(array_dadosInactivos, 1, auxDadosInactivos, 0, array_dadosInactivos.length - 1);
@@ -96,22 +96,24 @@ public class ModelClass {
 
   }
 
-  public void meterEnArrayDadosUtilizados(int posicion){
+  public void meterDadoEnArrayDadosUtilizados(int posicion){
     int contador =0;
     array_dadosUtilizados[contador] = array_dadosActivados[posicion];
     contador += 1;
+  }
+
+  public void usarDadoInactivo(int posicion){
+    array_dadosActivados[posicion] = array_dadosInactivos[0];
+    eliminarDadoDeArrayDadosInactivos();
   }
 
   public void validarBotonesAccionados(int posicionArrayDadosActivados) {
 
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 1) {
 
-      meterEnArrayDadosUtilizados(posicionArrayDadosActivados);
-      array_dadosActivados[posicionArrayDadosActivados] = array_dadosInactivos[0];
-      eliminarElementoDeArrayDadosInactivos();
+      meterDadoEnArrayDadosUtilizados(posicionArrayDadosActivados);
 
       array_dadosActivados[posicionArrayDadosActivados].setCara();
-      array_dadosActivados[posicionArrayDadosActivados].setCaraOpuesta();
 
       System.out.println("usó meeple");
 
@@ -135,7 +137,14 @@ public class ModelClass {
       System.out.println("usó dragón");
     }
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 5) {
-      System.out.println("usó corazón");
+
+      meterDadoEnArrayDadosUtilizados(posicionArrayDadosActivados);
+      usarDadoInactivo(posicionArrayDadosActivados);
+      array_dadosActivados[posicionArrayDadosActivados].setCara();
+
+
+      System.out.println("Usó corazón");
+
     }
     if (array_dadosActivados[posicionArrayDadosActivados].getCara() == 6) {
       System.out.println("usó 42");

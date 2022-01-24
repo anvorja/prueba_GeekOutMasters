@@ -16,18 +16,16 @@ public class Dado {
 
   public Dado() {
     setCara();
-    setCaraOpuesta();
-    setNameFace();
   }
 
   public void setCara() {
+
     Random aleatorio = new Random();
     cara = aleatorio.nextInt(6) + 1;
+    setCaraOpuesta();
+    setNameFace();
+
   }
-
-  public int getCara() { return cara; }
-
-  public int getCaraOpuesta() { return caraOpuesta; }
 
   public void setCaraOpuesta() {
 
@@ -72,51 +70,10 @@ public class Dado {
     }
   }
 
+  public int getCara() { return cara; }
+
+  public int getCaraOpuesta() { return caraOpuesta; }
+
   public String getNameFace() { return caraNombre; }
-
-  //    public void lanzarDeNuevo(){
-  //        setCara();
-  //    }
-  //    public void destruirUnDado(){
-  //
-  //    }
-  //    public void perderPuntos(){
-  //
-  //    }
-  //    public void girarOtroDado(){
-  //
-  //    }
-  //    public void jugarDadoInactivo(){
-  //
-  //    }
-  //    public void sumarPunto(){
-  //
-  //    }
-  //
-  //    public void setFuncion(){
-  //
-  //        if(cara==1){
-  //            lanzarDeNuevo();
-  //        }
-  //        if(cara==2){
-  //            destruirUnDado();
-  //        }
-  //        if(cara==3){
-  //            girarOtroDado();
-  //        }
-  //        if(cara==4){
-  //            perderPuntos();
-  //        }
-  //        if(cara==5){
-  //            jugarDadoInactivo();
-  //        }
-  //        if(cara==6){
-  //            sumarPunto();
-  //        }
-  //    }
-
-  public void printDesdeDado(){
-    variablePrueba = 5000;
-  }
 
 }

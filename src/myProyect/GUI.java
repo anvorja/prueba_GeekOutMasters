@@ -193,8 +193,8 @@ public class GUI extends JFrame {
     boton1.setPreferredSize(new Dimension(146, 146));
     boton1.setOpaque(true);
     imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[0].getCara() +
-                    ". 146x146.png"));
+            "/recursos/" + reciboCarasBotonesActivos[0].getCara() +
+                    ". cara dado.jpg"));
     boton1.setIcon(imageDado);
     boton1.setBackground(Color.WHITE);
     panelDadosActivados.add(boton1);
@@ -304,6 +304,11 @@ public class GUI extends JFrame {
 
   }
 
+  public void actualizarPaneles(){
+
+
+  }
+
 
   public static void main(String[] args) {
     EventQueue.invokeLater(() -> { GUI miProjectGUI = new GUI(); });
@@ -314,9 +319,6 @@ public class GUI extends JFrame {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-      Dado[] array_DadosActivados;
-      Dado[] array_DadosInactivos;
 
       if (e.getSource() == iniciar) {
 
@@ -331,13 +333,13 @@ public class GUI extends JFrame {
         meterBotonesActivos(modelClass.getDadosActivados());
 
         // probar cantidad dados inactivos
-        System.out.println("inactivos: " +
-                modelClass.getDadosInactivos().length);
-        for (int i = 0; i < modelClass.getDadosInactivos().length; i++) {
-          System.out.println(
-                  modelClass.getDadosInactivos()[i].getCara() + " su opuest: " +
-                          modelClass.getDadosInactivos()[i].getCaraOpuesta());
-        }
+//        System.out.println("inactivos: " +
+//                modelClass.getDadosInactivos().length);
+//        for (int i = 0; i < modelClass.getDadosInactivos().length; i++) {
+//          System.out.println(
+//                  modelClass.getDadosInactivos()[i].getCara() + " su opuest: " +
+//                          modelClass.getDadosInactivos()[i].getCaraOpuesta());
+//        }
 
         // dados inactivos
         meterBotonesInactivos(modelClass.getDadosInactivos());
@@ -365,11 +367,7 @@ public class GUI extends JFrame {
         modelClass.validarBotonesAccionados(0);
         //actualizarBotonesActivos(modelClass.getDadosActivados());
         System.out.println("Boton 1");
-
-//        System.out.println("Boton 1 : Nueva Cara es: "+modelClass.getDadosActivados()[0].getNameFace());
-//        System.out.println("AHORA ES CARA: "+modelClass.validarBotonesAccionados()[];
-//        mandarBotonAInactivos(modelClass.getDadosActivados()[0].getCara());
-//        modelClass.getDadosActivados()[0].setCara();
+        actualizarPaneles();
 
       }
       if (e.getSource() == boton2) {
