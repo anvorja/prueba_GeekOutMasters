@@ -193,8 +193,8 @@ public class GUI extends JFrame {
     boton1.setPreferredSize(new Dimension(146, 146));
     boton1.setOpaque(true);
     imageDado = new ImageIcon(getClass().getResource(
-            "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[0].getCara() +
-                    ". 146x146.png"));
+            "/recursos/" + reciboCarasBotonesActivos[0].getCara() +
+                    ". cara dado.jpg"));
     boton1.setIcon(imageDado);
     boton1.setBackground(Color.WHITE);
     panelDadosActivados.add(boton1);
