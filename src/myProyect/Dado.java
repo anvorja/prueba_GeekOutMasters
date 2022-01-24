@@ -14,12 +14,12 @@ public class Dado {
   private String caraNombre;
 
   public Dado() {
-    setCara();
+    crearCara();
     setCaraOpuesta();
     setNameFace();
   }
 
-  public void setCara() {
+  public void crearCara() {
     Random aleatorio = new Random();
     cara = aleatorio.nextInt(6) + 1;
   }
@@ -27,6 +27,10 @@ public class Dado {
   public int getCara() { return cara; }
 
   public int getCaraOpuesta() { return caraOpuesta; }
+
+  public void setCara(int nuevaCara){
+        this.cara=nuevaCara;
+  }
 
   public void setCaraOpuesta() {
 
@@ -45,6 +49,8 @@ public class Dado {
           case 6: caraOpuesta = 5;
       }
   }
+
+
 
   public void setNameFace() {
       switch (cara){

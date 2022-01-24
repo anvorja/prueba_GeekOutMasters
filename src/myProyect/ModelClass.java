@@ -8,7 +8,7 @@ package myProyect;
 public class ModelClass {
 
   private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9, dado10;
-  private int bandera;
+  private int bandera,contador;
   private Dado[] array_dadosActivados;
   private Dado[] array_dadosInactivos;
   private Dado[] array_dadosUtilizados;
@@ -37,7 +37,7 @@ public class ModelClass {
 
     array_dadosUtilizados = new Dado[10];
 
-    bandera = 0;
+    contador= 0;
   }
 
   public void iniciar_array_dadosActivados() {
@@ -70,21 +70,37 @@ public class ModelClass {
     }
   }
 
-  public void iniciar_array_dadosUtilizados() {
-
-    System.out.println("array_dadosInactivos");
-    for (int i = 0; i <= 2; i++) {
-      System.out.println(array_dadosUtilizados[i].getCara() +
-              " op: " + array_dadosUtilizados[i].getCaraOpuesta());
-    }
-  }
-
-//  public void determinarJuego() {
-//  }
 
   public Dado[] getDadosActivados() { return array_dadosActivados; }
 
   public Dado[] getDadosInactivos() { return array_dadosInactivos; }
+
+  public Dado[] getArray_dadosUtilizados() { return array_dadosUtilizados; }
+
+    public void eliminarElementoDeArrayDadosInactivos(){
+
+      Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
+      System.arraycopy(array_dadosInactivos, 1, auxDadosInactivos, 0, array_dadosInactivos.length - 1);
+      array_dadosInactivos = auxDadosInactivos;
+
+//    Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
+//    for(int i=0; i<array_dadosInactivos.length-1; i++){
+//      auxDadosInactivos[i]= array_dadosInactivos[i+1];
+//    }
+//    array_dadosActivados = auxDadosInactivos;
+
+    }
+
+  public void meterEnArrayDadosUtilizados(int posicion){
+      array_dadosUtilizados[contador] = array_dadosActivados[posicion];
+        contador += 1;
+  }
+
+
+//  public void determinarJuego() {
+//  }
+
+
 
   public void validarBotonesAccionados(int n, int m) {
 
@@ -135,12 +151,25 @@ public class ModelClass {
       }
   }
 
-  public  void accionarBoton(int n, int cara){
+  public  void accionarBoton(int posicionArrayDadosActivados){
 
-      switch (cara){
-          case 1: array_dadosActivados[n]= new Dado();
+      switch (array_dadosUtilizados[contador-1].getCara()){
+          case 1: array_dadosActivados[posicionArrayDadosActivados]= new Dado();
                   break;
-          case 4:
+          case 2: meterEnArrayDadosUtilizados(posicionArrayDadosActivados);
+              break;
+          case 3: array_dadosActivados[posicionArrayDadosActivados].setCara(array_dadosActivados[posicionArrayDadosActivados].getCaraOpuesta());
+              break;
+          case 5: array_dadosActivados[posicionArrayDadosActivados] = new Dado();
+              eliminarElementoDeArrayDadosInactivos();
+
+              System.out.println("activaste un dado");
+
+              //prueba en consola
+              for(int i = 0; i < array_dadosActivados.length; i++){
+                  System.out.println(array_dadosActivados[i].getNameFace());
+              }
+              break;
 
       }
 
