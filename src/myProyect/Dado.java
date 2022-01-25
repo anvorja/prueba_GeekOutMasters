@@ -1,7 +1,7 @@
 package myProyect;
 
 import java.util.Random;
-
+//CPM
 /**
  * This class generates a Random value between (1, 6)
  * @author Carlos Andrés Borja - borja.carlos@correounivalle.edu.co
