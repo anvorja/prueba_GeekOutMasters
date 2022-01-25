@@ -29,6 +29,7 @@ public class Dado {
     public int getCaraOpuesta() { return caraOpuesta; }
 
     public void setCara(int nuevaCara){
+
         this.cara=nuevaCara;
     }
 
