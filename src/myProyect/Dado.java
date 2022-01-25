@@ -69,7 +69,7 @@ public class Dado {
             case 6: caraNombre = "42";
         }
     }
-
+//
     public String getNameFace() { return caraNombre; }
 
 }
