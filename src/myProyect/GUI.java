@@ -535,6 +535,8 @@ public class GUI extends JFrame {
                             confirmarDestruir();
                         }
                     }
+                    revalidate();
+                    repaint();
                     break;
 
                 case 2:
@@ -748,6 +750,8 @@ public class GUI extends JFrame {
                                 break;
                         }
                     }
+                    revalidate();
+                    repaint();
                     break;
 
                 case 3:
@@ -795,6 +799,8 @@ public class GUI extends JFrame {
                         opcionPanel=1;
                     }
                     System.out.println("has activado un dado");
+                    revalidate();
+                    repaint();
                     break;
 
             }
