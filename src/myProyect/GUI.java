@@ -693,7 +693,7 @@ public class GUI extends JFrame {
                     }
                     if (e.getSource() == boton5) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(4);
                                 imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                         "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(4).getCara() +
@@ -701,8 +701,8 @@ public class GUI extends JFrame {
                                 boton5.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(4);
                                 imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                         "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(4).getCara() +
@@ -710,7 +710,7 @@ public class GUI extends JFrame {
                                 boton5.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton6) {

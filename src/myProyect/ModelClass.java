@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /**
  * @author Carlos Andrés Borja - borja.carlos@correounivalle.edu.co
  *         Deisy Catalina Melo - deisy.melo@correounivalle.edu.co
- * @version @version v.1.0.2 date: 19/01/2022
+ * @version @version v.1.0.3 date: 26/01/2022
  */
 public class ModelClass {
 
     private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9, dado10;
-    private int bandera,contador, indexPosicionActivo;
+    private int contador, indexPosicionActivo;
     private ArrayList <Dado> arrayList_dadosActivados;
     private ArrayList <Dado> arrayList_dadosInactivos;
     private ArrayList <Dado> arrayList_dadosUtilizados;
@@ -59,8 +59,6 @@ public class ModelClass {
 //
 //            System.out.println(arrayList_dadosActivados.get(i).getNameFace());
 //        }
-
-
     }
 
     public void iniciar_arrayList_dadosInactivos(){
@@ -73,8 +71,6 @@ public class ModelClass {
 //
 //            System.out.println(arrayList_dadosActivados.get(i).getNameFace());
 //        }
-
-
     }
 
     public void iniciar_arrayList_dadosUtilizados(){}
@@ -102,7 +98,6 @@ public class ModelClass {
 
 
     public void meterEnArrayDadosUtilizados(Dado x){
-
         arrayList_dadosUtilizados.add(x);
     }
 
@@ -118,8 +113,6 @@ public class ModelClass {
             case 5 -> System.out.println("usó corazón");
             case 6 -> System.out.println("usó 42");
         }
-
-
     }
 
     public  void accionarBoton(int posicionArrayDadosActivados){
@@ -145,7 +138,4 @@ public class ModelClass {
         }
 
     }
-
-
 }
-//
