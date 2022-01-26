@@ -10,13 +10,11 @@ import java.util.ArrayList;
 public class ModelClass {
 
     private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9, dado10;
-    private int bandera,contador;
+    private int bandera,contador, indexPosicionActivo;
     private ArrayList <Dado> arrayList_dadosActivados;
     private ArrayList <Dado> arrayList_dadosInactivos;
     private ArrayList <Dado> arrayList_dadosUtilizados;
-    private Dado[] array_dadosActivados;
-    private Dado[] array_dadosInactivos;
-    private Dado[] array_dadosUtilizados;
+
 
     /**
      * Class Constructor
@@ -34,22 +32,17 @@ public class ModelClass {
         dado9 = new Dado();
         dado10 = new Dado();
 
-        arrayList_dadosActivados = new ArrayList<Dado>();
+        arrayList_dadosActivados = new ArrayList<>();
         iniciar_arrayList_dadosActivados();
 
-        arrayList_dadosInactivos = new ArrayList<Dado>();
+        arrayList_dadosInactivos = new ArrayList<>();
         iniciar_arrayList_dadosInactivos();
 
-        arrayList_dadosUtilizados = new ArrayList<Dado>();
+        arrayList_dadosUtilizados = new ArrayList<>();
         iniciar_arrayList_dadosUtilizados();
 
-//        array_dadosActivados = new Dado[7];
-//        iniciar_array_dadosActivados();
-//        array_dadosInactivos = new Dado[3];
-//        iniciar_array_dadosInactivos();
-//        array_dadosUtilizados = new Dado[10];
-
         contador= 0;
+        indexPosicionActivo =0;
     }
 
     public void iniciar_arrayList_dadosActivados(){
@@ -87,38 +80,9 @@ public class ModelClass {
     public void iniciar_arrayList_dadosUtilizados(){}
 
 
-//    public void iniciar_array_dadosActivados() {
-//
-//        array_dadosActivados[0] = dado1;
-//        array_dadosActivados[1] = dado2;
-//        array_dadosActivados[2] = dado3;
-//        array_dadosActivados[3] = dado4;
-//        array_dadosActivados[4] = dado5;
-//        array_dadosActivados[5] = dado6;
-//        array_dadosActivados[6] = dado7;
-//
-//        System.out.println("array_dadosActivados");
-//        for (int i = 0; i < 7; i++) {
-//            System.out.println(array_dadosActivados[i].getCara() +
-//                    " op: " + array_dadosActivados[i].getCaraOpuesta());
-//        }
-//    }
-
-//    public void iniciar_array_dadosInactivos() {
-//
-//        array_dadosInactivos[0] = dado8;
-//        array_dadosInactivos[1] = dado9;
-//        array_dadosInactivos[2] = dado10;
-//
-//        System.out.println("array_dadosInactivos");
-//        for (int i = 0; i <= 2; i++) {
-//            System.out.println(array_dadosInactivos[i].getCara() +
-//                    " op: " + array_dadosInactivos[i].getCaraOpuesta());
-//        }
-//    }
-
-
-    public ArrayList<Dado> getDadosActivados() { return arrayList_dadosActivados; }
+    public ArrayList<Dado> getDadosActivados() {
+        return arrayList_dadosActivados;
+    }
 
     public ArrayList<Dado>  getDadosInactivos() { return arrayList_dadosInactivos; }
 
@@ -126,28 +90,20 @@ public class ModelClass {
 
     public void eliminarElementoDeArrayDadosInactivos(){
 
-        Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
-        System.arraycopy(array_dadosInactivos, 1, auxDadosInactivos, 0, array_dadosInactivos.length - 1);
-        array_dadosInactivos = auxDadosInactivos;
-
-//    Dado[] auxDadosInactivos = new Dado[array_dadosInactivos.length-1];
-//    for(int i=0; i<array_dadosInactivos.length-1; i++){
-//      auxDadosInactivos[i]= array_dadosInactivos[i+1];
-//    }
-//    array_dadosActivados = auxDadosInactivos;
+        arrayList_dadosInactivos.remove(0);
 
     }
 
-    public void meterEnArrayDadosUtilizados(int posicion){
-        array_dadosUtilizados[contador] = array_dadosActivados[posicion];
-        contador += 1;
+    public void meterEnArrayDadosUtilizados(Dado x){
+
+        arrayList_dadosUtilizados.add(x);
     }
 
 
     public void validarBotonesAccionados(int posicionArrayDadosActivados, int tipoDePanel) {
 //relacionar boton con su posicion en array_dadosActivados, su cara y el tipo de panel (1:activados)
         if (tipoDePanel == 1) {
-            switch (getDadosActivados()[posicionArrayDadosActivados].getCara()) {
+            switch (getDadosActivados().get(posicionArrayDadosActivados).getCara()) {
                 case 1:
                     System.out.println("usó meeple");
                     break;
@@ -170,7 +126,7 @@ public class ModelClass {
         }
         if (tipoDePanel == 2) {
 
-            switch (getDadosInactivos()[posicionArrayDadosActivados].getCara()) {
+            switch (getDadosInactivos().get(posicionArrayDadosActivados).getCara()) {
                 case 1:
                     System.out.println("usó meeple");
                     break;
@@ -195,22 +151,28 @@ public class ModelClass {
 
     public  void accionarBoton(int posicionArrayDadosActivados){
 
-        switch (array_dadosUtilizados[contador - 1].getCara()) {
-            case 1 -> array_dadosActivados[posicionArrayDadosActivados] = new Dado();
-            case 2 -> meterEnArrayDadosUtilizados(posicionArrayDadosActivados);
-            case 3 -> array_dadosActivados[posicionArrayDadosActivados].setCara(array_dadosActivados[posicionArrayDadosActivados].getCaraOpuesta());
+        switch (arrayList_dadosUtilizados.get(contador - 1).getCara()) {
+            case 1 -> {
+                Dado nuevoDadito = new Dado();
+                arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDadito);
+            }
+            case 2 -> meterEnArrayDadosUtilizados(arrayList_dadosActivados.get(posicionArrayDadosActivados));
+            case 3 -> arrayList_dadosActivados.get(posicionArrayDadosActivados).setCara(arrayList_dadosActivados.get(posicionArrayDadosActivados).getCaraOpuesta());
             case 5 -> {
-                array_dadosActivados[posicionArrayDadosActivados] = new Dado();
+                Dado nuevoDado = new Dado();
+                arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDado);
                 eliminarElementoDeArrayDadosInactivos();
                 System.out.println("activaste un dado");
 
                 //prueba en consola
-                for (int i = 0; i < array_dadosActivados.length; i++) {
-                    System.out.println(array_dadosActivados[i].getNameFace());
+                for (int i = 0; i < arrayList_dadosActivados.size(); i++) {
+                    System.out.println(arrayList_dadosActivados.get(i).getNameFace());
                 }
             }
         }
 
     }
+
+
 }
 //
