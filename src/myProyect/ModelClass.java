@@ -82,7 +82,7 @@ public class ModelClass {
 
     public ArrayList<Dado>  getDadosInactivos() { return arrayList_dadosInactivos; }
 
-    public ArrayList<Dado> getArray_dadosUtilizados() { return arrayList_dadosUtilizados; }
+    public ArrayList<Dado> getDadosUtilizados() { return arrayList_dadosUtilizados; }
 
     public void eliminarElementoDeArrayDadosInactivos(){
 

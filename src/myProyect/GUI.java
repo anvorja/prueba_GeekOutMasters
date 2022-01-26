@@ -366,7 +366,23 @@ public class GUI extends JFrame {
                             indiceJBoton9A--;
                             indiceJBoton10A--;
 
-
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
 
                         }
                     } else if (e.getSource() == boton2) {
@@ -398,6 +414,23 @@ public class GUI extends JFrame {
                             indiceJBoton9A--;
                             indiceJBoton10A--;
 
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
 
                         }
                     } else if (e.getSource() == boton3) {
@@ -428,6 +461,24 @@ public class GUI extends JFrame {
                             indiceJBoton9A--;
                             indiceJBoton10A--;
 
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton4) {
                         if (destruir ||
@@ -455,6 +506,25 @@ public class GUI extends JFrame {
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton5) {
                         if (destruir ||
@@ -481,6 +551,24 @@ public class GUI extends JFrame {
                             indiceJBoton9A--;
                             indiceJBoton10A--;
 
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton6) {
                         if (destruir ||
@@ -506,6 +594,25 @@ public class GUI extends JFrame {
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton7) {
                         if (destruir ||
@@ -531,6 +638,24 @@ public class GUI extends JFrame {
                             indiceJBoton9A--;
                             indiceJBoton10A--;
 
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton8A) {
                         if (destruir ||
@@ -554,6 +679,24 @@ public class GUI extends JFrame {
                             indiceJBoton9A--;
                             indiceJBoton10A--;
 
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton9A) {
                         if (destruir ||
@@ -576,6 +719,24 @@ public class GUI extends JFrame {
 
                             indiceJBoton10A--;
 
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
+
                         }
                     } else if (e.getSource() == boton10A) {
                         if (destruir ||
@@ -595,6 +756,24 @@ public class GUI extends JFrame {
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton10A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            /*
+                              prueba en consola
+                             */
+                            System.out.println("------------");
+                            System.out.println("->ACTIVADOS");
+                            for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+                            }
+                            System.out.println("->INACTIVOS");
+                            for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+                            }
+                            System.out.println("->UTILIZADOS");
+                            for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+                                System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+                            }
+                            System.out.println("------------");
                         }
                     }
                     revalidate();
