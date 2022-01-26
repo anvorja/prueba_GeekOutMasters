@@ -94,59 +94,32 @@ public class ModelClass {
 
     }
 
+    public void eliminarElementoDeArrayDadosActivados(int posicionDelButton){
+
+        arrayList_dadosActivados.remove(posicionDelButton);
+
+    }
+
+
     public void meterEnArrayDadosUtilizados(Dado x){
 
         arrayList_dadosUtilizados.add(x);
     }
 
 
-    public void validarBotonesAccionados(int posicionArrayDadosActivados, int tipoDePanel) {
+    public void validarBotonesAccionados(int posicionArrayDadosActivados) {
 //relacionar boton con su posicion en array_dadosActivados, su cara y el tipo de panel (1:activados)
-        if (tipoDePanel == 1) {
-            switch (getDadosActivados().get(posicionArrayDadosActivados).getCara()) {
-                case 1:
-                    System.out.println("usó meeple");
-                    break;
-                case 2:
-                    System.out.println("usó nave");
-                    break;
-                case 3:
-                    System.out.println("usó superH");
-                    break;
-                case 4:
-                    System.out.println("usó dragón");
-                    break;
-                case 5:
-                    System.out.println("usó corazón");
-                    break;
-                case 6:
-                    System.out.println("usó 42");
-                    break;
-            }
-        }
-        if (tipoDePanel == 2) {
 
-            switch (getDadosInactivos().get(posicionArrayDadosActivados).getCara()) {
-                case 1:
-                    System.out.println("usó meeple");
-                    break;
-                case 2:
-                    System.out.println("usó nave");
-                    break;
-                case 3:
-                    System.out.println("usó superH");
-                    break;
-                case 4:
-                    System.out.println("usó dragón");
-                    break;
-                case 5:
-                    System.out.println("usó corazón");
-                    break;
-                case 6:
-                    System.out.println("usó 42");
-                    break;
-            }
+        switch (getDadosActivados().get(posicionArrayDadosActivados).getCara()) {
+            case 1 -> System.out.println("usó meeple");
+            case 2 -> System.out.println("usó nave");
+            case 3 -> System.out.println("usó superH");
+            case 4 -> System.out.println("usó dragón");
+            case 5 -> System.out.println("usó corazón");
+            case 6 -> System.out.println("usó 42");
         }
+
+
     }
 
     public  void accionarBoton(int posicionArrayDadosActivados){
@@ -165,8 +138,8 @@ public class ModelClass {
                 System.out.println("activaste un dado");
 
                 //prueba en consola
-                for (int i = 0; i < arrayList_dadosActivados.size(); i++) {
-                    System.out.println(arrayList_dadosActivados.get(i).getNameFace());
+                for (Dado arrayList_dadosActivado : arrayList_dadosActivados) {
+                    System.out.println(arrayList_dadosActivado.getNameFace());
                 }
             }
         }
