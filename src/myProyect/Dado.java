@@ -24,52 +24,39 @@ public class Dado {
         cara = aleatorio.nextInt(6) + 1;
     }
 
-    public int getCara() { return cara; }
-
-    public int getCaraOpuesta() { return caraOpuesta; }
-
     public void setCara(int nuevaCara){
 
-        this.cara=nuevaCara;
+        cara = nuevaCara;
     }
 
     public void setCaraOpuesta() {
 
-        switch (cara){
-
-            case 1: caraOpuesta = 2;
-                break;
-            case 2: caraOpuesta = 1;
-                break;
-            case 3: caraOpuesta = 4;
-                break;
-            case 4: caraOpuesta = 3;
-                break;
-            case 5: caraOpuesta = 6;
-                break;
-            case 6: caraOpuesta = 5;
+        switch (cara) {
+            case 1 -> caraOpuesta = 2;
+            case 2 -> caraOpuesta = 1;
+            case 3 -> caraOpuesta = 4;
+            case 4 -> caraOpuesta = 3;
+            case 5 -> caraOpuesta = 6;
+            case 6 -> caraOpuesta = 5;
         }
     }
 
 
-
     public void setNameFace() {
-        switch (cara){
-
-            case 1: caraNombre = "Meeple";
-                break;
-            case 2: caraNombre = "Nave";
-                break;
-            case 3: caraNombre = "SuperHeroe";
-                break;
-            case 4: caraNombre = "Dragon";
-                break;
-            case 5: caraNombre = "Corazon";
-                break;
-            case 6: caraNombre = "42";
+        switch (cara) {
+            case 1 -> caraNombre = "Meeple";
+            case 2 -> caraNombre = "Nave";
+            case 3 -> caraNombre = "SuperHeroe";
+            case 4 -> caraNombre = "Dragon";
+            case 5 -> caraNombre = "Corazon";
+            case 6 -> caraNombre = "42";
         }
     }
 //
     public String getNameFace() { return caraNombre; }
+
+    public int getCara() { return cara; }
+
+    public int getCaraOpuesta() { return caraOpuesta; }
 
 }

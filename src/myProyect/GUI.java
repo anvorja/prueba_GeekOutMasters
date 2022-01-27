@@ -300,15 +300,17 @@ public class GUI extends JFrame {
         System.out.println("->ACTIVADOS");
         for (int i=0;i<modelClass.getDadosActivados().size();i++) {
             System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
-        }
+        }System.out.println("tamaño activados: "+modelClass.getDadosActivados().size());
+
         System.out.println("->INACTIVOS");
         for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
             System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
-        }
+        }System.out.println("tamaño Inactivos: "+modelClass.getDadosInactivos().size());
+
         System.out.println("->UTILIZADOS");
         for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
             System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
-        }
+        }System.out.println("tamaño utilizados: "+modelClass.getDadosUtilizados().size());
         System.out.println("------------");
     }
 
@@ -658,15 +660,18 @@ public class GUI extends JFrame {
                                 boton1.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(0);
                                 imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(0).getCaraOpuesta() +
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(0).getCara() +
                                                 ". 146x146.png")));
                                 boton1.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -680,6 +685,7 @@ public class GUI extends JFrame {
                                 boton2.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton2);
@@ -689,6 +695,7 @@ public class GUI extends JFrame {
                                 boton2.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -703,6 +710,7 @@ public class GUI extends JFrame {
                                 boton3.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton3);
@@ -712,6 +720,7 @@ public class GUI extends JFrame {
                                 boton3.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -725,6 +734,7 @@ public class GUI extends JFrame {
                                 boton4.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton4);
@@ -734,6 +744,7 @@ public class GUI extends JFrame {
                                 boton4.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -747,6 +758,7 @@ public class GUI extends JFrame {
                                 boton5.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton5);
@@ -756,6 +768,7 @@ public class GUI extends JFrame {
                                 boton5.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -769,6 +782,7 @@ public class GUI extends JFrame {
                                 boton6.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton6);
@@ -778,6 +792,7 @@ public class GUI extends JFrame {
                                 boton6.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -791,6 +806,7 @@ public class GUI extends JFrame {
                                 boton7.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton7);
@@ -800,6 +816,7 @@ public class GUI extends JFrame {
                                 boton7.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -813,6 +830,7 @@ public class GUI extends JFrame {
                                 boton8A.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton8A);
@@ -822,6 +840,7 @@ public class GUI extends JFrame {
                                 boton8A.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -835,6 +854,7 @@ public class GUI extends JFrame {
                                 boton9A.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton9A);
@@ -844,6 +864,7 @@ public class GUI extends JFrame {
                                 boton9A.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -857,6 +878,7 @@ public class GUI extends JFrame {
                                 boton10A.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                             case 3 -> {
                                 modelClass.accionarBoton(indiceJBoton10A);
@@ -866,6 +888,7 @@ public class GUI extends JFrame {
                                 boton10A.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
+                                probarEnConsola();
                             }
                         }
                     }
@@ -886,6 +909,7 @@ public class GUI extends JFrame {
                         panelDadosActivados.add(boton8A);
 
                         opcionPanel = 1;
+                        probarEnConsola();
                     }
                     if (e.getSource() == boton9A) {
                         modelClass.eliminarElementoDeArrayDadosInactivos();
@@ -899,6 +923,7 @@ public class GUI extends JFrame {
                         panelDadosActivados.add(boton9A);
 
                         opcionPanel = 1;
+                        probarEnConsola();
                     }
                     if (e.getSource() == boton10A) {
                         modelClass.eliminarElementoDeArrayDadosInactivos();
@@ -912,6 +937,7 @@ public class GUI extends JFrame {
                         panelDadosActivados.add(boton10A);
 
                         opcionPanel = 1;
+                        probarEnConsola();
                     }
                     System.out.println("has activado un dado");
                     revalidate();

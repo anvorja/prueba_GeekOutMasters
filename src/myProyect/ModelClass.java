@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class ModelClass {
 
     private Dado dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9, dado10;
-    private int contador, indexPosicionActivo;
     private ArrayList <Dado> arrayList_dadosActivados;
     private ArrayList <Dado> arrayList_dadosInactivos;
     private ArrayList <Dado> arrayList_dadosUtilizados;
@@ -41,8 +40,6 @@ public class ModelClass {
         arrayList_dadosUtilizados = new ArrayList<>();
         iniciar_arrayList_dadosUtilizados();
 
-        contador= 0;
-        indexPosicionActivo =0;
     }
 
     public void iniciar_arrayList_dadosActivados(){
@@ -55,10 +52,6 @@ public class ModelClass {
         arrayList_dadosActivados.add(dado6);
         arrayList_dadosActivados.add(dado7);
 
-//        for (int i=0;i<arrayList_dadosActivados.size();i++) {
-//
-//            System.out.println(arrayList_dadosActivados.get(i).getNameFace());
-//        }
     }
 
     public void iniciar_arrayList_dadosInactivos(){
@@ -67,10 +60,6 @@ public class ModelClass {
         arrayList_dadosInactivos.add(dado9);
         arrayList_dadosInactivos.add(dado10);
 
-//        for (int i=0;i<arrayList_dadosActivados.size();i++) {
-//
-//            System.out.println(arrayList_dadosActivados.get(i).getNameFace());
-//        }
     }
 
     public void iniciar_arrayList_dadosUtilizados(){}
@@ -117,8 +106,9 @@ public class ModelClass {
 
     public  void accionarBoton(int posicionArrayDadosActivados){
 
-        switch (arrayList_dadosUtilizados.get(contador - 1).getCara()) {
+        switch (arrayList_dadosUtilizados.get(arrayList_dadosUtilizados.size() - 1).getCara()) {
             case 1 -> {
+                arrayList_dadosActivados.remove(posicionArrayDadosActivados);
                 Dado nuevoDadito = new Dado();
                 arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDadito);
             }
