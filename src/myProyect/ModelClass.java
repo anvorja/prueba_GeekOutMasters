@@ -113,7 +113,12 @@ public class ModelClass {
                 arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDadito);
             }
             case 2 -> meterEnArrayDadosUtilizados(arrayList_dadosActivados.get(posicionArrayDadosActivados));
-            case 3 -> arrayList_dadosActivados.get(posicionArrayDadosActivados).setCara(arrayList_dadosActivados.get(posicionArrayDadosActivados).getCaraOpuesta());
+            case 3 -> {
+                arrayList_dadosActivados.get(posicionArrayDadosActivados).setCara(arrayList_dadosActivados.get(posicionArrayDadosActivados).getCaraOpuesta());
+                System.out.println("esta es la cara del nuevo dado luego de girar: "+arrayList_dadosActivados.get(posicionArrayDadosActivados).getCara());
+                System.out.println("cara opuesta del nuevo dado: " + arrayList_dadosActivados.get(posicionArrayDadosActivados).getCaraOpuesta());
+                System.out.println("nombre del dado: "+ arrayList_dadosActivados.get(posicionArrayDadosActivados).getNameFace());
+            }
             case 5 -> {
                 Dado nuevoDado = new Dado();
                 arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDado);

@@ -25,8 +25,10 @@ public class Dado {
     }
 
     public void setCara(int nuevaCara){
-
         cara = nuevaCara;
+        setCaraOpuesta();
+        setNameFace();
+
     }
 
     public void setCaraOpuesta() {
@@ -52,11 +54,13 @@ public class Dado {
             case 6 -> caraNombre = "42";
         }
     }
-//
+
     public String getNameFace() { return caraNombre; }
 
     public int getCara() { return cara; }
 
     public int getCaraOpuesta() { return caraOpuesta; }
+
+
 
 }

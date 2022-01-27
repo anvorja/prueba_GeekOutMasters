@@ -84,7 +84,7 @@ public class GUI extends JFrame {
         indiceJBoton10A = 9;
 
         panelDadosActivados = new JPanel();
-        panelDadosActivados.setPreferredSize(new Dimension(400, 340));
+        panelDadosActivados.setPreferredSize(new Dimension(400, 400));
         panelDadosActivados.setBorder(
                 BorderFactory.createTitledBorder("Dados Activados"));
 
@@ -96,7 +96,7 @@ public class GUI extends JFrame {
 
         // dados inactivos
         panelDadosInactivos = new JPanel();
-        panelDadosInactivos.setPreferredSize(new Dimension(370, 180));
+        panelDadosInactivos.setPreferredSize(new Dimension(300, 180));
         panelDadosInactivos.setBorder(BorderFactory.createTitledBorder("Dados Inactivos"));
 
         this.add(panelDadosInactivos, BorderLayout.WEST);
@@ -105,7 +105,7 @@ public class GUI extends JFrame {
     public void crearPanelDadosUtilizados() {
 
         panelDadosUtilizados = new JPanel();
-        panelDadosUtilizados.setPreferredSize(new Dimension(300, 180));
+        panelDadosUtilizados.setPreferredSize(new Dimension(350, 250));
         panelDadosUtilizados.setBorder(BorderFactory.createTitledBorder("Dados Utilizados"));
 
         this.add(panelDadosUtilizados, BorderLayout.CENTER);
@@ -126,7 +126,7 @@ public class GUI extends JFrame {
 
         panelResultados = new JPanel();
         panelResultados.setBorder(BorderFactory.createTitledBorder("Puntuación"));
-        panelResultados.setPreferredSize(new Dimension(370, 180));
+        panelResultados.setPreferredSize(new Dimension(300, 180));
         this.add(panelResultados, BorderLayout.EAST);
     }
 
@@ -716,7 +716,7 @@ public class GUI extends JFrame {
                                 modelClass.accionarBoton(indiceJBoton3);
                                 imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                         "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton3).getCara() +
-                                                ".146x146.png")));
+                                                ". 146x146.png")));
                                 boton3.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
@@ -897,7 +897,7 @@ public class GUI extends JFrame {
                 }
                 case 3 -> {
                     if (e.getSource() == boton8A) {
-                        modelClass.eliminarElementoDeArrayDadosInactivos();
+                        //modelClass.eliminarElementoDeArrayDadosInactivos();
                         modelClass.accionarBoton(indiceJBoton8A);
 
                         boton8A.setPreferredSize(new Dimension(146, 146));
@@ -912,7 +912,7 @@ public class GUI extends JFrame {
                         probarEnConsola();
                     }
                     if (e.getSource() == boton9A) {
-                        modelClass.eliminarElementoDeArrayDadosInactivos();
+                       // modelClass.eliminarElementoDeArrayDadosInactivos();
                         modelClass.accionarBoton(indiceJBoton9A);
 
                         boton9A.setPreferredSize(new Dimension(146, 146));
@@ -926,7 +926,7 @@ public class GUI extends JFrame {
                         probarEnConsola();
                     }
                     if (e.getSource() == boton10A) {
-                        modelClass.eliminarElementoDeArrayDadosInactivos();
+                       // modelClass.eliminarElementoDeArrayDadosInactivos();
                         modelClass.accionarBoton(indiceJBoton10A);
 
                         boton10A.setPreferredSize(new Dimension(146, 146));
