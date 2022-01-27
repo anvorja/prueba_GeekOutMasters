@@ -273,6 +273,24 @@ public class GUI extends JFrame {
         }
     }
 
+    public void probarEnConsolaInicio(){
+        // probar cantidad dados activados e inactivos
+        System.out.println("Iniciando Juego\nactivados: " +
+                modelClass.getDadosActivados().size());
+        for (int i = 0; i < modelClass.getDadosActivados().size(); i++) {
+            System.out.println(
+                    modelClass.getDadosActivados().get(i).getCara() + " su opuesta: " +
+                            modelClass.getDadosActivados().get(i).getCaraOpuesta());
+        }
+
+        System.out.println("inactivos: " +
+                modelClass.getDadosInactivos().size());
+        for (int i = 0; i < modelClass.getDadosInactivos().size(); i++) {
+            System.out.println(
+                    modelClass.getDadosInactivos().get(i).getCara() + " su opuesta: " +
+                            modelClass.getDadosInactivos().get(i).getCaraOpuesta());
+        }
+    }
     public void probarEnConsola(){
 
         /*
@@ -311,29 +329,14 @@ public class GUI extends JFrame {
 
                 meterBotonesActivos(modelClass.getDadosActivados());
 
-                // probar cantidad dados activados e inactivos
-                System.out.println("activados: " +
-                        modelClass.getDadosActivados().size());
-                for (int i = 0; i < modelClass.getDadosActivados().size(); i++) {
-                    System.out.println(
-                            modelClass.getDadosActivados().get(i).getCara() + " su opuest: " +
-                                    modelClass.getDadosActivados().get(i).getCaraOpuesta());
-                }
-
-                System.out.println("inactivos: " +
-                        modelClass.getDadosInactivos().size());
-                for (int i = 0; i < modelClass.getDadosInactivos().size(); i++) {
-                    System.out.println(
-                            modelClass.getDadosInactivos().get(i).getCara() + " su opuest: " +
-                                    modelClass.getDadosInactivos().get(i).getCaraOpuesta());
-                }
+                probarEnConsolaInicio();
 
                 // dados inactivos
                 panelDadosInactivos.removeAll();
                 meterDadosInactivos(modelClass.getDadosInactivos());
                 panelDadosUtilizados.removeAll();
 
-                /*
+                /*opcionPanel
                   si es 1: elegir dado de panel de Dados Activos,
                   si es 2: accionar dado
                   si es 3: adicionar dado inactivo a panel de Dados Activos
