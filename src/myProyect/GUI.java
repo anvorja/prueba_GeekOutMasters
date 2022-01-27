@@ -3,6 +3,8 @@ package myProyect;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Objects;
 import javax.swing.*;
 
 /**
@@ -23,7 +25,9 @@ public class GUI extends JFrame {
     private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelLanzar;
     //auxiliares
-    private int opcionPanel, caraBotonUsado,posicionDadoInactivoEnActivos, posicionDado8A, posicionDado9A,posicionDado10A;
+    private int opcionPanel, caraBotonUsado,posicionDadoInactivoEnActivos, posicionDado8A, posicionDado9A,posicionDado10A,
+            indiceJBoton2, indiceJBoton3, indiceJBoton4, indiceJBoton5, indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
+            indiceJBoton10A;
     private boolean destruir,flag;
 
 
@@ -69,6 +73,15 @@ public class GUI extends JFrame {
     }
 
     public void crearPanelDadosActivados() {
+        indiceJBoton2 = 1;
+        indiceJBoton3 = 2;
+        indiceJBoton4 = 3;
+        indiceJBoton5 = 4;
+        indiceJBoton6 = 5;
+        indiceJBoton7 = 6;
+        indiceJBoton8A = 7;
+        indiceJBoton9A = 8;
+        indiceJBoton10A = 9;
 
         panelDadosActivados = new JPanel();
         panelDadosActivados.setPreferredSize(new Dimension(400, 340));
@@ -117,16 +130,16 @@ public class GUI extends JFrame {
         this.add(panelResultados, BorderLayout.EAST);
     }
 
-    public void meterBotonesActivos(Dado[] reciboCarasBotonesActivos) {
+    public void meterBotonesActivos(ArrayList<Dado> reciboCarasBotonesActivos) {
 
         boton1 = new JButton();
         boton1.addActionListener(escucha);
         boton1.setPreferredSize(new Dimension(146, 146));
         boton1.setContentAreaFilled(false);
         boton1.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[0].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(0).getCara() +
+                        ". 146x146.png")));
         boton1.setIcon(imageDado);
         panelDadosActivados.add(boton1);
 
@@ -135,9 +148,9 @@ public class GUI extends JFrame {
         boton2.setPreferredSize(new Dimension(146, 146));
         boton2.setContentAreaFilled(false);
         boton2.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[1].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(1).getCara() +
+                        ". 146x146.png")));
         boton2.setIcon(imageDado);
         panelDadosActivados.add(boton2);
 
@@ -146,9 +159,9 @@ public class GUI extends JFrame {
         boton3.setPreferredSize(new Dimension(146, 146));
         boton3.setContentAreaFilled(false);
         boton3.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[2].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(2).getCara() +
+                        ". 146x146.png")));
         boton3.setIcon(imageDado);
         panelDadosActivados.add(boton3);
 
@@ -157,9 +170,9 @@ public class GUI extends JFrame {
         boton4.setPreferredSize(new Dimension(146, 146));
         boton4.setContentAreaFilled(false);
         boton4.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[3].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(3).getCara() +
+                        ". 146x146.png")));
         boton4.setIcon(imageDado);
         panelDadosActivados.add(boton4);
 
@@ -168,9 +181,9 @@ public class GUI extends JFrame {
         boton5.setPreferredSize(new Dimension(146, 146));
         boton5.setContentAreaFilled(false);
         boton5.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[4].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(4).getCara() +
+                        ". 146x146.png")));
         boton5.setIcon(imageDado);
         panelDadosActivados.add(boton5);
 
@@ -179,9 +192,9 @@ public class GUI extends JFrame {
         boton6.setPreferredSize(new Dimension(146, 146));
         boton6.setContentAreaFilled(false);
         boton6.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[5].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(5).getCara() +
+                        ". 146x146.png")));
         boton6.setIcon(imageDado);
         panelDadosActivados.add(boton6);
 
@@ -190,24 +203,24 @@ public class GUI extends JFrame {
         boton7.setPreferredSize(new Dimension(146, 146));
         boton7.setContentAreaFilled(false);
         boton7.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos[6].getCara() +
-                        ". 146x146.png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/medianas 146/" + reciboCarasBotonesActivos.get(6).getCara() +
+                        ". 146x146.png")));
         boton7.setIcon(imageDado);
         panelDadosActivados.add(boton7);
 
     }
 
-    public void meterDadosInactivos(Dado [] reciboCarasBotonesInactivos){
+    public void meterDadosInactivos(ArrayList<Dado> reciboCarasBotonesInactivos){
 
         boton8A = new JButton();
         boton8A.addActionListener(escucha);
         boton8A.setPreferredSize(new Dimension(69, 60));
         boton8A.setContentAreaFilled(false);
         boton8A.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos[0].getCara() +
-                        ".png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos.get(0).getCara() +
+                        ".png")));
         boton8A.setIcon(imageDado);
 
         panelDadosInactivos.add(boton8A);
@@ -217,9 +230,9 @@ public class GUI extends JFrame {
         boton9A.setPreferredSize(new Dimension(69, 60));
         boton9A.setContentAreaFilled(false);
         boton9A.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos[1].getCara() +
-                        ".png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos.get(1).getCara() +
+                        ".png")));
         boton9A.setIcon(imageDado);
         panelDadosInactivos.add(boton9A);
 
@@ -228,9 +241,9 @@ public class GUI extends JFrame {
         boton10A.setPreferredSize(new Dimension(69, 60));
         boton10A.setContentAreaFilled(false);
         boton10A.setBorderPainted(false);
-        imageDado = new ImageIcon(getClass().getResource(
-                "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos[2].getCara() +
-                        ".png"));
+        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos.get(2).getCara() +
+                        ".png")));
         boton10A.setIcon(imageDado);
         panelDadosInactivos.add(boton10A);
 
@@ -240,7 +253,7 @@ public class GUI extends JFrame {
 
     public void confirmarDestruir(){
 
-        if (caraBotonUsado==2 && destruir== true || destruir== true){
+        if (((caraBotonUsado == 2) && (destruir == true)) || (destruir == true)){
 
             destruir=false;
             caraBotonUsado=0;
@@ -260,6 +273,45 @@ public class GUI extends JFrame {
         }
     }
 
+    public void probarEnConsolaInicio(){
+        // probar cantidad dados activados e inactivos
+        System.out.println("Iniciando Juego\nactivados: " +
+                modelClass.getDadosActivados().size());
+        for (int i = 0; i < modelClass.getDadosActivados().size(); i++) {
+            System.out.println(
+                    modelClass.getDadosActivados().get(i).getCara() + " su opuesta: " +
+                            modelClass.getDadosActivados().get(i).getCaraOpuesta());
+        }
+
+        System.out.println("inactivos: " +
+                modelClass.getDadosInactivos().size());
+        for (int i = 0; i < modelClass.getDadosInactivos().size(); i++) {
+            System.out.println(
+                    modelClass.getDadosInactivos().get(i).getCara() + " su opuesta: " +
+                            modelClass.getDadosInactivos().get(i).getCaraOpuesta());
+        }
+    }
+    public void probarEnConsola(){
+
+        /*
+        *Prueba por consola
+        */
+        System.out.println("------------");
+        System.out.println("->ACTIVADOS");
+        for (int i=0;i<modelClass.getDadosActivados().size();i++) {
+            System.out.println(i+": "+modelClass.getDadosActivados().get(i).getNameFace());
+        }
+        System.out.println("->INACTIVOS");
+        for (int i=0;i<modelClass.getDadosInactivos().size();i++) {
+            System.out.println(i+": "+modelClass.getDadosInactivos().get(i).getNameFace());
+        }
+        System.out.println("->UTILIZADOS");
+        for (int i=0;i<modelClass.getDadosUtilizados().size();i++) {
+            System.out.println(i+": "+modelClass.getDadosUtilizados().get(i).getNameFace());
+        }
+        System.out.println("------------");
+    }
+
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { GUI miProjectGUI = new GUI(); });
     }
@@ -272,25 +324,19 @@ public class GUI extends JFrame {
 
             if (e.getSource() == iniciar) {
 
+                //inhabilitar boton
                 iniciar.setEnabled(false);
 
                 meterBotonesActivos(modelClass.getDadosActivados());
 
-                // probar cantidad dados inactivos
-                System.out.println("inactivos: " +
-                        modelClass.getDadosInactivos().length);
-                for (int i = 0; i < modelClass.getDadosInactivos().length; i++) {
-                    System.out.println(
-                            modelClass.getDadosInactivos()[i].getCara() + " su opuest: " +
-                                    modelClass.getDadosInactivos()[i].getCaraOpuesta());
-                }
+                probarEnConsolaInicio();
 
                 // dados inactivos
                 panelDadosInactivos.removeAll();
                 meterDadosInactivos(modelClass.getDadosInactivos());
                 panelDadosUtilizados.removeAll();
 
-                /*
+                /*opcionPanel
                   si es 1: elegir dado de panel de Dados Activos,
                   si es 2: accionar dado
                   si es 3: adicionar dado inactivo a panel de Dados Activos
@@ -311,221 +357,290 @@ public class GUI extends JFrame {
                 //escoger dado
                 case 1 -> {
                     if (e.getSource() == boton1) {
-                        if (destruir == true || modelClass.getDadosActivados()[0].getCara() != 4 && modelClass.getDadosActivados()[0].getCara() != 6) {
+
+                        if ((destruir) || ((modelClass.getDadosActivados().get(0).getCara() != 4) && (modelClass.getDadosActivados().get(0).getCara() != 6))) {
 
                             System.out.println("Boton 1");
-                            modelClass.validarBotonesAccionados(0, 1);
+                            modelClass.validarBotonesAccionados(0);
 
                             //set ingresar Boton a panel Utilizados
                             boton1.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[0].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(0).getCara() +
+                                            ".png")));
                             boton1.setIcon(imageDado);
                             panelDadosUtilizados.add(boton1);
+                            // boton1.setEnabled(false);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 0;
-                            }
+                            caraBotonUsado = modelClass.getDadosActivados().get(0).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(0));
+                            modelClass.eliminarElementoDeArrayDadosActivados(0);
 
-                            caraBotonUsado = modelClass.getDadosActivados()[0].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(0);
+
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
 
+                            indiceJBoton2--;
+                            indiceJBoton3--;
+                            indiceJBoton4--;
+                            indiceJBoton5--;
+                            indiceJBoton6--;
+                            indiceJBoton7--;
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+
+                            probarEnConsola();
 
                         }
                     } else if (e.getSource() == boton2) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[1].getCara() != 4 && modelClass.getDadosActivados()[1].getCara() != 6) {
+                        if (destruir || modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 6) {
 
                             System.out.println("Boton 2");
-                            modelClass.validarBotonesAccionados(1, 1);
+                            modelClass.validarBotonesAccionados(indiceJBoton2);
                             boton2.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[1].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton2).getCara() +
+                                            ".png")));
                             boton2.setIcon(imageDado);
                             panelDadosUtilizados.add(boton2);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 1;
-                            }
 
-                            caraBotonUsado = modelClass.getDadosActivados()[1].getCara();//prueba en consola
-                            modelClass.meterEnArrayDadosUtilizados(1);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton2).getCara();//prueba en consola
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton2));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton2);
+
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);//prueba en consola
                             confirmarDestruir();
 
+                            indiceJBoton3--;
+                            indiceJBoton4--;
+                            indiceJBoton5--;
+                            indiceJBoton6--;
+                            indiceJBoton7--;
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
+
                         }
                     } else if (e.getSource() == boton3) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[2].getCara() != 4 && modelClass.getDadosActivados()[2].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 6) {
 
                             System.out.println("Boton 3");
-                            modelClass.validarBotonesAccionados(2, 1);
+                            modelClass.validarBotonesAccionados(indiceJBoton3);
                             boton3.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[2].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton3).getCara() +
+                                            ".png")));
                             boton3.setIcon(imageDado);
                             panelDadosUtilizados.add(boton3);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 2;
-                            }
 
-                            caraBotonUsado = modelClass.getDadosActivados()[2].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(2);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton3).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton3));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton3);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton4--;
+                            indiceJBoton5--;
+                            indiceJBoton6--;
+                            indiceJBoton7--;
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
+
                         }
                     } else if (e.getSource() == boton4) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[3].getCara() != 4 && modelClass.getDadosActivados()[3].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 6) {
 
                             System.out.println("Boton 4");
-                            modelClass.validarBotonesAccionados(3, 1);
+                            modelClass.validarBotonesAccionados(indiceJBoton4);
                             boton4.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[3].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton4).getCara() +
+                                            ".png")));
                             boton4.setIcon(imageDado);
                             panelDadosUtilizados.add(boton4);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 3;
-                            }
 
-                            caraBotonUsado = modelClass.getDadosActivados()[3].getCara();//prueba en consola
-                            modelClass.meterEnArrayDadosUtilizados(3);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton4).getCara();//prueba en consola
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton4));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton4);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton5--;
+                            indiceJBoton6--;
+                            indiceJBoton7--;
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
+
                         }
                     } else if (e.getSource() == boton5) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[4].getCara() != 4 && modelClass.getDadosActivados()[4].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 6) {
 
                             System.out.println("Boton 5");
-                            modelClass.validarBotonesAccionados(4, 1);
+                            modelClass.validarBotonesAccionados(indiceJBoton5);
                             boton5.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[4].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton5).getCara() +
+                                            ".png")));
                             boton5.setIcon(imageDado);
                             panelDadosUtilizados.add(boton5);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 4;
-                            }
-
-                            caraBotonUsado = modelClass.getDadosActivados()[4].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(4);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton5).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton5));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton5);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton6--;
+                            indiceJBoton7--;
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
 
                         }
                     } else if (e.getSource() == boton6) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[5].getCara() != 4 && modelClass.getDadosActivados()[5].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 6) {
 
                             System.out.println("Boton 6");
-                            modelClass.validarBotonesAccionados(5, 1);
+                            modelClass.validarBotonesAccionados(indiceJBoton6);
                             boton6.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[5].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton6).getCara() +
+                                            ".png")));
                             boton6.setIcon(imageDado);
                             panelDadosUtilizados.add(boton6);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 5;
-                            }
 
-                            caraBotonUsado = modelClass.getDadosActivados()[5].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(5);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton6).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton6));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton6);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton7--;
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
 
                         }
                     } else if (e.getSource() == boton7) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[6].getCara() != 4 && modelClass.getDadosActivados()[6].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 6) {
 
                             System.out.println("Boton 7");
-                            modelClass.validarBotonesAccionados(6, 1);
+                            modelClass.validarBotonesAccionados(indiceJBoton7);
 
                             boton7.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[6].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton7).getCara() +
+                                            ".png")));
                             boton7.setIcon(imageDado);
                             panelDadosUtilizados.add(boton7);
 
-                            if (modelClass.getDadosInactivos() != null) {
-                                posicionDadoInactivoEnActivos = 6;
-                            }
-
-                            caraBotonUsado = modelClass.getDadosActivados()[6].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(6);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton7).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton7));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton7);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton8A--;
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
 
                         }
                     } else if (e.getSource() == boton8A) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[posicionDado8A].getCara() != 4 && modelClass.getDadosActivados()[posicionDado8A].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 4 &&modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 6) {
 
                             System.out.println("Boton 8A");
-                            modelClass.validarBotonesAccionados(0, 2);
+                            modelClass.validarBotonesAccionados(indiceJBoton8A);
                             boton8A.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[posicionDado8A].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton8A).getCara() +
+                                            ".png")));
                             boton8A.setIcon(imageDado);
                             panelDadosUtilizados.add(boton8A);
 
-                            caraBotonUsado = modelClass.getDadosActivados()[posicionDado8A].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(posicionDado8A);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton8A).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton8A));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton8A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton9A--;
+                            indiceJBoton10A--;
+
+
+                            probarEnConsola();
 
                         }
                     } else if (e.getSource() == boton9A) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[posicionDado9A].getCara() != 4 && modelClass.getDadosActivados()[posicionDado9A].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 6) {
 
                             System.out.println("Boton 9A");
-                            modelClass.validarBotonesAccionados(1, 2);
+                            modelClass.validarBotonesAccionados(indiceJBoton9A);
                             boton9A.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[posicionDado9A].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton9A).getCara() +
+                                            ".png")));
                             boton9A.setIcon(imageDado);
                             panelDadosUtilizados.add(boton9A);
 
-                            caraBotonUsado = modelClass.getDadosActivados()[posicionDado9A].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(posicionDado9A);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton9A).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton9A));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton9A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+                            indiceJBoton10A--;
+
+                            probarEnConsola();
+
                         }
                     } else if (e.getSource() == boton10A) {
-                        if (destruir == true ||
-                                modelClass.getDadosActivados()[posicionDado10A].getCara() != 4 && modelClass.getDadosInactivos()[posicionDado10A].getCara() != 6) {
+                        if (destruir ||
+                                modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 6) {
 
                             System.out.println("Boton 10A");
-                            modelClass.validarBotonesAccionados(2, 2);
+                            modelClass.validarBotonesAccionados(indiceJBoton10A);
                             boton10A.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(getClass().getResource(
-                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados()[posicionDado10A].getCara() +
-                                            ".png"));
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                    "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton10A).getCara() +
+                                            ".png")));
                             boton10A.setIcon(imageDado);
                             panelDadosUtilizados.add(boton10A);
 
-                            caraBotonUsado = modelClass.getDadosActivados()[posicionDado10A].getCara();
-                            modelClass.meterEnArrayDadosUtilizados(posicionDado10A);
+                            caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton10A).getCara();
+                            modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton10A));
+                            modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton10A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
+
+
+                            probarEnConsola();
                         }
                     }
                     revalidate();
@@ -533,223 +648,225 @@ public class GUI extends JFrame {
                 }
                 case 2 -> {
                     if (e.getSource() == boton1) {
+
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(0);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[0].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(0).getCara() +
+                                                ". 146x146.png")));
                                 boton1.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(0);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[0].getCaraOpuesta() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(0).getCaraOpuesta() +
+                                                ". 146x146.png")));
                                 boton1.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton2) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(1);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[1].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(1).getCara() +
+                                                ". 146x146.png")));
                                 boton2.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(1);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[1].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(1).getCara() +
+                                                ". 146x146.png")));
                                 boton2.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton3) {
                         switch (caraBotonUsado) {
-                            case 1:
+
+                            case 1 -> {
                                 modelClass.accionarBoton(2);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[2].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(2).getCara() +
+                                                ". 146x146.png")));
                                 boton3.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(2);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[2].getCara() +
-                                                ".146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(2).getCara() +
+                                                ".146x146.png")));
                                 boton3.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton4) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(3);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[3].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(3).getCara() +
+                                                ". 146x146.png")));
                                 boton4.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(3);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[3].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(3).getCara() +
+                                                ". 146x146.png")));
                                 boton4.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton5) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(4);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[4].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(4).getCara() +
+                                                ". 146x146.png")));
                                 boton5.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(4);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[4].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(4).getCara() +
+                                                ". 146x146.png")));
                                 boton5.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton6) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(5);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[5].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(5).getCara() +
+                                                ". 146x146.png")));
                                 boton6.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(5);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[5].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(5).getCara() +
+                                                ". 146x146.png")));
                                 boton6.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton7) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(6);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[6].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(7).getCara() +
+                                                ". 146x146.png")));
                                 boton7.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(6);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[6].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(7).getCara() +
+                                                ". 146x146.png")));
                                 boton7.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton8A) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(posicionDado8A);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDado8A].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(8).getCara() +
+                                                ". 146x146.png")));
                                 boton8A.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(posicionDado8A);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDado8A].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(8).getCara() +
+                                                ". 146x146.png")));
                                 boton8A.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton9A) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(posicionDado9A);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDado9A].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(9).getCara() +
+                                                ". 146x146.png")));
                                 boton9A.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(posicionDado9A);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDado9A].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(9).getCara() +
+                                                ". 146x146.png")));
                                 boton9A.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     if (e.getSource() == boton10A) {
                         switch (caraBotonUsado) {
-                            case 1:
+                            case 1 -> {
                                 modelClass.accionarBoton(posicionDado10A);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDado10A].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(10).getCara() +
+                                                ". 146x146.png")));
                                 boton10A.setIcon(imageDado);
                                 System.out.println("has relanzado un dado");
                                 opcionPanel = 1;
-                                break;
-                            case 3:
+                            }
+                            case 3 -> {
                                 modelClass.accionarBoton(posicionDado10A);
-                                imageDado = new ImageIcon(getClass().getResource(
-                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDado10A].getCara() +
-                                                ". 146x146.png"));
+                                imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                        "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(10).getCara() +
+                                                ". 146x146.png")));
                                 boton10A.setIcon(imageDado);
                                 System.out.println("has dado vuelta a un dado");
                                 opcionPanel = 1;
-                                break;
+                            }
                         }
                     }
                     revalidate();
@@ -763,9 +880,9 @@ public class GUI extends JFrame {
 
                         boton8A.setPreferredSize(new Dimension(146, 146));
                         System.out.println("actualizó el array de activos");
-                        imageDado = new ImageIcon(getClass().getResource(
-                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados()[posicionDadoInactivoEnActivos].getCara() +
-                                        ". 146x146.png"));
+                        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(posicionDadoInactivoEnActivos).getCara() +
+                                        ". 146x146.png")));
                         boton8A.setIcon(imageDado);
                         panelDadosActivados.add(boton8A);
 
@@ -777,9 +894,9 @@ public class GUI extends JFrame {
                         posicionDado9A = posicionDadoInactivoEnActivos;
 
                         boton9A.setPreferredSize(new Dimension(146, 146));
-                        imageDado = new ImageIcon(getClass().getResource(
-                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosInactivos()[1].getCara() +
-                                        ". 146x146.png"));
+                        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(posicionDadoInactivoEnActivos).getCara() +
+                                        ". 146x146.png")));
                         boton9A.setIcon(imageDado);
                         panelDadosActivados.add(boton9A);
 
@@ -791,9 +908,9 @@ public class GUI extends JFrame {
                         posicionDado10A = posicionDadoInactivoEnActivos;
 
                         boton10A.setPreferredSize(new Dimension(146, 146));
-                        imageDado = new ImageIcon(getClass().getResource(
-                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosInactivos()[2].getCara() +
-                                        ". 146x146.png"));
+                        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(posicionDadoInactivoEnActivos).getCara() +
+                                        ". 146x146.png")));
                         boton10A.setIcon(imageDado);
                         panelDadosActivados.add(boton10A);
 
