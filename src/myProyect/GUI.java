@@ -19,8 +19,9 @@ public class GUI extends JFrame {
     private static final String MENSAJE_INICIO = "Bienvenido a Geek Out";
 
     private Header headerProject;
-    private JLabel labelBoton6U,labelBoton7U,labelBoton8U,labelBoton9U,labelBoton10U;
-    private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8A, boton9A, boton10A;
+    private JLabel labelBoton1U,labelBoton2U,labelBoton3U,labelBoton4U,labelBoton5U,labelBoton6U,labelBoton7U,labelBoton8U,labelBoton9U,labelBoton10U;
+    private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8,
+            boton9, boton10, boton8A, boton9A, boton10A;
     private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelLanzar;
     //auxiliares
@@ -414,14 +415,12 @@ public class GUI extends JFrame {
                             modelClass.validarBotonesAccionados(0);
 
                             //set ingresar Boton a panel Utilizados
-                            boton1.setPreferredSize(new Dimension(69, 60));
-
                             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(0).getCara() +
                                             ".png")));
-                            boton1.setIcon(imageDado);
-                            panelDadosUtilizados.add(boton1);
-                            // boton1.setEnabled(false);
+                            labelBoton1U= new JLabel(imageDado);
+                            panelDadosActivados.remove(boton1);
+                            panelDadosUtilizados.add(labelBoton1U);
 
                             caraBotonUsado = modelClass.getDadosActivados().get(0).getCara();
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(0));
@@ -449,12 +448,12 @@ public class GUI extends JFrame {
 
                             System.out.println("Boton 2");
                             modelClass.validarBotonesAccionados(indiceJBoton2);
-                            boton2.setPreferredSize(new Dimension(69, 60));
                             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton2).getCara() +
                                             ".png")));
-                            boton2.setIcon(imageDado);
-                            panelDadosUtilizados.add(boton2);
+                            labelBoton2U= new JLabel(imageDado);
+                            panelDadosActivados.remove(boton2);
+                            panelDadosUtilizados.add(labelBoton2U);
 
 
                             caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton2).getCara();//prueba en consola
@@ -482,12 +481,12 @@ public class GUI extends JFrame {
 
                             System.out.println("Boton 3");
                             modelClass.validarBotonesAccionados(indiceJBoton3);
-                            boton3.setPreferredSize(new Dimension(69, 60));
-                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                                                   imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton3).getCara() +
                                             ".png")));
-                            boton3.setIcon(imageDado);
-                            panelDadosUtilizados.add(boton3);
+                            labelBoton3U= new JLabel(imageDado);
+                            panelDadosActivados.remove(boton3);
+                            panelDadosUtilizados.add(labelBoton3U);
 
 
                             caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton3).getCara();
@@ -513,12 +512,12 @@ public class GUI extends JFrame {
 
                             System.out.println("Boton 4");
                             modelClass.validarBotonesAccionados(indiceJBoton4);
-                            boton4.setPreferredSize(new Dimension(69, 60));
                             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton4).getCara() +
                                             ".png")));
-                            boton4.setIcon(imageDado);
-                            panelDadosUtilizados.add(boton4);
+                            labelBoton4U= new JLabel(imageDado);;
+                            panelDadosActivados.remove(boton4);
+                            panelDadosUtilizados.add(labelBoton4U);
 
 
                             caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton4).getCara();//prueba en consola
@@ -543,12 +542,12 @@ public class GUI extends JFrame {
 
                             System.out.println("Boton 5");
                             modelClass.validarBotonesAccionados(indiceJBoton5);
-                            boton5.setPreferredSize(new Dimension(69, 60));
                             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton5).getCara() +
                                             ".png")));
-                            boton5.setIcon(imageDado);
-                            panelDadosUtilizados.add(boton5);
+                            labelBoton5U= new JLabel(imageDado);
+                            panelDadosActivados.remove(boton5);
+                            panelDadosUtilizados.add(labelBoton5U);
 
                             caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton5).getCara();
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton5));
