@@ -19,8 +19,8 @@ public class GUI extends JFrame {
     private static final String MENSAJE_INICIO = "Bienvenido a Geek Out";
 
     private Header headerProject;
-    private JLabel labelBoton1U,labelBoton2U,labelBoton3U,labelBoton4U,labelBoton5U,labelBoton6U,labelBoton7U,labelBoton8U,labelBoton9U,labelBoton10U;
-    private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8,
+    private JLabel labelBoton1U,labelBoton2U,labelBoton3U,labelBoton4U,labelBoton5U,labelBoton6U,labelBoton7U,labelBoton8U,labelBoton9U,labelBoton10U, jLabelInicio;
+    private JButton comenzarJuego, iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8,
             boton9, boton10, boton8A, boton9A, boton10A;
     private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelLanzar;
@@ -29,9 +29,7 @@ public class GUI extends JFrame {
             indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
             indiceJBoton10A;
     private boolean destruir,flag;
-
-
-    private ImageIcon imageDado;
+    private ImageIcon imageDado, imagenInicio;
     private JTextArea mensajesSalida, resultadoDados;
     private JSeparator separator;
     private Escucha escucha;
@@ -52,18 +50,38 @@ public class GUI extends JFrame {
     private void initGUI() {
         // Set up JFrame Container's Layout
         // Create Listener Object or Control Object
-
         escucha = new Escucha();
         modelClass = new ModelClass();
 
         // Set up JComponents
+        crearPanelInicio();
+
+    }
+
+    private void crearPanelInicio() {
+
+        imagenInicio = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/header.jpg")));
+
+        jLabelInicio = new JLabel(imagenInicio);
+        panelInicio = new JPanel();
+        panelInicio.setPreferredSize(new Dimension(951, 632));
+        panelInicio.add(jLabelInicio);
+        this.add(panelInicio, BorderLayout.CENTER);
+        crearBotonLanzar();
+
+    }
+
+    public void llamarPanelesJuego(){
+
+        this.remove(panelInicio);
+
         headerProject = new Header("Gekk Out Masters", Color.BLACK);
         this.add(headerProject, BorderLayout.NORTH);
 
         crearPanelDadosActivados();
         crearDadosInactivos();
         crearPanelDadosUtilizados();
-        crearBotonLanzar();
+        //crearBotonLanzar();
         crearPanelResultados();
 
         separator = new JSeparator();
@@ -89,6 +107,7 @@ public class GUI extends JFrame {
                 BorderFactory.createTitledBorder("Dados Activados"));
 
         this.add(panelDadosActivados, BorderLayout.NORTH);
+
     }
 
 
@@ -99,7 +118,11 @@ public class GUI extends JFrame {
         panelDadosInactivos.setPreferredSize(new Dimension(300, 180));
         panelDadosInactivos.setBorder(BorderFactory.createTitledBorder("Dados Inactivos"));
 
+        revalidate();
+        repaint();
+
         this.add(panelDadosInactivos, BorderLayout.WEST);
+
     }
 
     public void crearPanelDadosUtilizados() {
@@ -109,6 +132,7 @@ public class GUI extends JFrame {
         panelDadosUtilizados.setBorder(BorderFactory.createTitledBorder("Dados Utilizados"));
 
         this.add(panelDadosUtilizados, BorderLayout.CENTER);
+
     }
 
     public void crearBotonLanzar() {
@@ -118,8 +142,6 @@ public class GUI extends JFrame {
         panelLanzar = new JPanel();
         panelLanzar.add(iniciar);
         this.add(panelLanzar, BorderLayout.PAGE_END);
-        panelDadosActivados.removeAll();
-        panelDadosActivados.repaint();
     }
 
     public void crearPanelResultados() {
@@ -127,7 +149,9 @@ public class GUI extends JFrame {
         panelResultados = new JPanel();
         panelResultados.setBorder(BorderFactory.createTitledBorder("Puntuación"));
         panelResultados.setPreferredSize(new Dimension(300, 180));
+
         this.add(panelResultados, BorderLayout.EAST);
+
     }
 
     public void meterBotonesActivos(ArrayList<Dado> reciboCarasBotonesActivos) {
@@ -270,9 +294,9 @@ public class GUI extends JFrame {
 
         if(caraBotonUsado==5){
             if(contador<3){
-            contador++;
-            activarDadoInactivo();
-        }
+                contador++;
+                activarDadoInactivo();
+            }
         }
     }
 
@@ -297,8 +321,8 @@ public class GUI extends JFrame {
     public void probarEnConsola(){
 
         /*
-        *Prueba por consola
-        */
+         *Prueba por consola
+         */
         System.out.println("------------");
         System.out.println("->ACTIVADOS");
         for (int i=0;i<modelClass.getDadosActivados().size();i++) {
@@ -375,17 +399,13 @@ public class GUI extends JFrame {
 
             if (e.getSource() == iniciar) {
 
-                //inhabilitar boton
+                llamarPanelesJuego();
+                //inhabilitar boton de inicio
                 iniciar.setEnabled(false);
-
                 meterBotonesActivos(modelClass.getDadosActivados());
-
                 probarEnConsolaInicio();
-
                 // dados inactivos
-                panelDadosInactivos.removeAll();
                 meterDadosInactivos(modelClass.getDadosInactivos());
-                panelDadosUtilizados.removeAll();
 
                 /*opcionPanel
                   si es 1: elegir dado de panel de Dados Activos,
@@ -480,7 +500,7 @@ public class GUI extends JFrame {
 
                             System.out.println("Boton 3");
                             modelClass.validarBotonesAccionados(indiceJBoton3);
-                                                   imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton3).getCara() +
                                             ".png")));
                             labelBoton3U= new JLabel(imageDado);
