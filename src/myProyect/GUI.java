@@ -61,7 +61,6 @@ public class GUI extends JFrame {
         this.add(headerProject, BorderLayout.NORTH);
 
         crearPanelDadosActivados();
-
         crearDadosInactivos();
         crearPanelDadosUtilizados();
         crearBotonLanzar();
