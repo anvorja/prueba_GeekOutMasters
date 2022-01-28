@@ -24,11 +24,10 @@ public class GUI extends JFrame {
             boton9, boton10, boton8A, boton9A, boton10A;
     private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelLanzar;
-    //auxiliares
     private int opcionPanel, caraBotonUsado, contador, indiceJBoton2, indiceJBoton3, indiceJBoton4, indiceJBoton5,
             indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
             indiceJBoton10A;
-    private boolean destruir,flag;
+    private boolean destruir;
     private ImageIcon imageDado, imagenInicio;
     private JTextArea mensajesSalida, resultadoDados;
     private JSeparator separator;
@@ -61,7 +60,6 @@ public class GUI extends JFrame {
     private void crearPanelInicio() {
 
         imagenInicio = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/header.jpg")));
-
         jLabelInicio = new JLabel(imagenInicio);
         panelInicio = new JPanel();
         panelInicio.setPreferredSize(new Dimension(951, 632));
@@ -81,7 +79,6 @@ public class GUI extends JFrame {
         crearPanelDadosActivados();
         crearDadosInactivos();
         crearPanelDadosUtilizados();
-        //crearBotonLanzar();
         crearPanelResultados();
 
         separator = new JSeparator();
@@ -273,7 +270,6 @@ public class GUI extends JFrame {
 
 
     }
-
 
     public void confirmarDestruir(){
 
