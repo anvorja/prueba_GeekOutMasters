@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.swing.*;
-
+//
 /**
  * This class is designed in order to view class ModelClas
  * @author Carlos Andrés Borja - borja.carlos@correounivalle.edu.co
