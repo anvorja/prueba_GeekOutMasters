@@ -419,7 +419,7 @@ public class GUI extends JFrame {
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(0).getCara() +
                                             ".png")));
                             labelBoton5U= new JLabel(imageDado);
-                            panelDadosActivados.add(boton1);
+                            panelDadosActivados.remove(boton1);
                             panelDadosUtilizados.add(labelBoton1U);
 
                             caraBotonUsado = modelClass.getDadosActivados().get(0).getCara();
@@ -452,7 +452,7 @@ public class GUI extends JFrame {
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton2).getCara() +
                                             ".png")));
                             labelBoton2U= new JLabel(imageDado);
-                            panelDadosActivados.add(boton2);
+                            panelDadosActivados.remove(boton2);
                             panelDadosUtilizados.add(labelBoton2U);
 
 
@@ -485,7 +485,7 @@ public class GUI extends JFrame {
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton3).getCara() +
                                             ".png")));
                             labelBoton3U= new JLabel(imageDado);
-                            panelDadosActivados.add(boton3);
+                            panelDadosActivados.remove(boton3);
                             panelDadosUtilizados.add(labelBoton3U);
 
 
@@ -516,7 +516,7 @@ public class GUI extends JFrame {
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton4).getCara() +
                                             ".png")));
                             labelBoton4U= new JLabel(imageDado);;
-                            panelDadosActivados.add(boton4);
+                            panelDadosActivados.remove(boton4);
                             panelDadosUtilizados.add(labelBoton4U);
 
 
@@ -546,7 +546,7 @@ public class GUI extends JFrame {
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton5).getCara() +
                                             ".png")));
                             labelBoton5U= new JLabel(imageDado);
-                            panelDadosActivados.add(boton5);
+                            panelDadosActivados.remove(boton5);
                             panelDadosUtilizados.add(labelBoton5U);
 
                             caraBotonUsado = modelClass.getDadosActivados().get(indiceJBoton5).getCara();
