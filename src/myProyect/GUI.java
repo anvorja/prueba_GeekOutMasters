@@ -11,7 +11,7 @@ import javax.swing.*;
  * This class is designed in order to view class ModelClas
  * @author Carlos Andrés Borja - borja.carlos@correounivalle.edu.co
  *         Deisy Catalina Melo - deisy.melo@correounivalle.edu.co
- * @version v.1.0.2 date: 19/01/2022
+ * @version v.1.0.3 date: 28/01/2022
  */
 public class GUI extends JFrame {
 
@@ -20,7 +20,7 @@ public class GUI extends JFrame {
 
     private Header headerProject;
     private JLabel labelBoton1U,labelBoton2U,labelBoton3U,labelBoton4U,labelBoton5U,labelBoton6U,labelBoton7U,labelBoton8U,labelBoton9U,labelBoton10U, jLabelInicio;
-    private JButton comenzarJuego, iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8,
+    private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8,
             boton9, boton10, boton8A, boton9A, boton10A;
     private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelLanzar;
