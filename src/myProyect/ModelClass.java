@@ -85,7 +85,6 @@ public class ModelClass {
 
     }
 
-
     public void meterEnArrayDadosUtilizados(Dado x){
         arrayList_dadosUtilizados.add(x);
     }
@@ -108,9 +107,11 @@ public class ModelClass {
 
         switch (arrayList_dadosUtilizados.get(arrayList_dadosUtilizados.size() - 1).getCara()) {
             case 1 -> {
-                arrayList_dadosActivados.remove(posicionArrayDadosActivados);
-                Dado nuevoDadito = new Dado();
-                arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDadito);
+               arrayList_dadosActivados.remove(posicionArrayDadosActivados);
+               Dado nuevoDadito = new Dado();
+               arrayList_dadosActivados.add(posicionArrayDadosActivados,nuevoDadito);
+
+
             }
             case 2 -> meterEnArrayDadosUtilizados(arrayList_dadosActivados.get(posicionArrayDadosActivados));
             case 3 -> {

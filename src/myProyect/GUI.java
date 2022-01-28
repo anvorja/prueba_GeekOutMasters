@@ -25,8 +25,8 @@ public class GUI extends JFrame {
     private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelLanzar;
     //auxiliares
-    private int opcionPanel, caraBotonUsado,posicionDadoInactivoEnActivos, posicionDado8A, posicionDado9A,posicionDado10A,
-            indiceJBoton2, indiceJBoton3, indiceJBoton4, indiceJBoton5, indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
+    private int opcionPanel, caraBotonUsado, contador, indiceJBoton2, indiceJBoton3, indiceJBoton4, indiceJBoton5,
+            indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
             indiceJBoton10A;
     private boolean destruir,flag;
 
@@ -82,6 +82,7 @@ public class GUI extends JFrame {
         indiceJBoton8A = 7;
         indiceJBoton9A = 8;
         indiceJBoton10A = 9;
+        contador=0;
 
         panelDadosActivados = new JPanel();
         panelDadosActivados.setPreferredSize(new Dimension(400, 400));
@@ -269,7 +270,10 @@ public class GUI extends JFrame {
         }
 
         if(caraBotonUsado==5){
-            opcionPanel=3;
+            if(contador<3){
+            contador++;
+            activarDadoInactivo();
+        }
         }
     }
 
@@ -314,6 +318,52 @@ public class GUI extends JFrame {
         System.out.println("------------");
     }
 
+    public void activarDadoInactivo(){
+        if(contador==1){
+            modelClass.accionarBoton(indiceJBoton8A);
+
+            boton8A.setPreferredSize(new Dimension(146, 146));
+            System.out.println("actualizó el array de activos");
+            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                    "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton8A).getCara() +
+                            ". 146x146.png")));
+            boton8A.setIcon(imageDado);
+            panelDadosActivados.add(boton8A);
+
+            opcionPanel = 1;
+            probarEnConsola();
+        }
+        else if(contador==2){
+            modelClass.accionarBoton(indiceJBoton9A);
+
+            boton9A.setPreferredSize(new Dimension(146, 146));
+            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                    "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton9A).getCara() +
+                            ". 146x146.png")));
+            boton9A.setIcon(imageDado);
+            panelDadosActivados.add(boton9A);
+
+            opcionPanel = 1;
+            probarEnConsola();
+        }
+        else if(contador==3){
+            modelClass.accionarBoton(indiceJBoton10A);
+
+            boton10A.setPreferredSize(new Dimension(146, 146));
+            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                    "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton10A).getCara() +
+                            ". 146x146.png")));
+            boton10A.setIcon(imageDado);
+            panelDadosActivados.add(boton10A);
+
+            opcionPanel = 1;
+            probarEnConsola();
+        }
+        System.out.println("has activado un dado");
+        revalidate();
+        repaint();
+    }
+
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { GUI miProjectGUI = new GUI(); });
     }
@@ -341,7 +391,6 @@ public class GUI extends JFrame {
                 /*opcionPanel
                   si es 1: elegir dado de panel de Dados Activos,
                   si es 2: accionar dado
-                  si es 3: adicionar dado inactivo a panel de Dados Activos
                  */
                 opcionPanel = 1;
 
@@ -380,7 +429,6 @@ public class GUI extends JFrame {
 
 
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton2--;
                             indiceJBoton3--;
@@ -391,7 +439,7 @@ public class GUI extends JFrame {
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
-
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -414,7 +462,6 @@ public class GUI extends JFrame {
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton2);
 
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);//prueba en consola
-                            confirmarDestruir();
 
                             indiceJBoton3--;
                             indiceJBoton4--;
@@ -424,6 +471,7 @@ public class GUI extends JFrame {
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -446,7 +494,6 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton3));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton3);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton4--;
                             indiceJBoton5--;
@@ -455,6 +502,7 @@ public class GUI extends JFrame {
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -477,7 +525,6 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton4));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton4);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton5--;
                             indiceJBoton6--;
@@ -485,6 +532,7 @@ public class GUI extends JFrame {
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -506,13 +554,13 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton5));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton5);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton6--;
                             indiceJBoton7--;
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -535,12 +583,12 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton6));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton6);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton7--;
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -563,11 +611,11 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton7));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton7);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton8A--;
                             indiceJBoton9A--;
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -589,11 +637,10 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton8A));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton8A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton9A--;
                             indiceJBoton10A--;
-
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -615,9 +662,9 @@ public class GUI extends JFrame {
                             modelClass.meterEnArrayDadosUtilizados(modelClass.getDadosActivados().get(indiceJBoton9A));
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton9A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
-                            confirmarDestruir();
 
                             indiceJBoton10A--;
+                            confirmarDestruir();
 
                             probarEnConsola();
 
@@ -640,7 +687,6 @@ public class GUI extends JFrame {
                             modelClass.eliminarElementoDeArrayDadosActivados(indiceJBoton10A);
                             System.out.println("La cara del boton usado es: " + caraBotonUsado);
                             confirmarDestruir();
-
 
                             probarEnConsola();
                         }
@@ -895,54 +941,7 @@ public class GUI extends JFrame {
                     revalidate();
                     repaint();
                 }
-                case 3 -> {
-                    if (e.getSource() == boton8A) {
-                        //modelClass.eliminarElementoDeArrayDadosInactivos();
-                        modelClass.accionarBoton(indiceJBoton8A);
 
-                        boton8A.setPreferredSize(new Dimension(146, 146));
-                        System.out.println("actualizó el array de activos");
-                        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
-                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton8A).getCara() +
-                                        ". 146x146.png")));
-                        boton8A.setIcon(imageDado);
-                        panelDadosActivados.add(boton8A);
-
-                        opcionPanel = 1;
-                        probarEnConsola();
-                    }
-                    if (e.getSource() == boton9A) {
-                       // modelClass.eliminarElementoDeArrayDadosInactivos();
-                        modelClass.accionarBoton(indiceJBoton9A);
-
-                        boton9A.setPreferredSize(new Dimension(146, 146));
-                        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
-                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton9A).getCara() +
-                                        ". 146x146.png")));
-                        boton9A.setIcon(imageDado);
-                        panelDadosActivados.add(boton9A);
-
-                        opcionPanel = 1;
-                        probarEnConsola();
-                    }
-                    if (e.getSource() == boton10A) {
-                       // modelClass.eliminarElementoDeArrayDadosInactivos();
-                        modelClass.accionarBoton(indiceJBoton10A);
-
-                        boton10A.setPreferredSize(new Dimension(146, 146));
-                        imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
-                                "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton10A).getCara() +
-                                        ". 146x146.png")));
-                        boton10A.setIcon(imageDado);
-                        panelDadosActivados.add(boton10A);
-
-                        opcionPanel = 1;
-                        probarEnConsola();
-                    }
-                    System.out.println("has activado un dado");
-                    revalidate();
-                    repaint();
-                }
             }
 
         }
