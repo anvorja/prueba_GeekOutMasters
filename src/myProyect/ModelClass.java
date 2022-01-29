@@ -13,6 +13,8 @@ public class ModelClass {
     private ArrayList <Dado> arrayList_dadosActivados;
     private ArrayList <Dado> arrayList_dadosInactivos;
     private ArrayList <Dado> arrayList_dadosUtilizados;
+    private boolean terminarPartida;
+    private int dadosAccionar,numeroDragon, numero42, puntaje;
 
 
     /**
@@ -39,6 +41,13 @@ public class ModelClass {
 
         arrayList_dadosUtilizados = new ArrayList<>();
         iniciar_arrayList_dadosUtilizados();
+
+        numero42=0;
+        numeroDragon=0;
+        dadosAccionar=0;
+        puntaje=0;
+        terminarPartida=false;
+
 
     }
 
@@ -89,6 +98,49 @@ public class ModelClass {
         arrayList_dadosUtilizados.add(x);
     }
 
+    public void verificarPartida(){
+        if(!arrayList_dadosActivados.isEmpty()){
+            for (Dado elementoDeLista : arrayList_dadosActivados) {
+                if (elementoDeLista.getCara() == 1 || elementoDeLista.getCara() == 2 || elementoDeLista.getCara() == 3 ||
+                        ((elementoDeLista.getCara() == 5) && !arrayList_dadosInactivos.isEmpty()) ) {
+                    dadosAccionar++;
+                }
+                if(elementoDeLista.getCara()==4){
+                    numeroDragon++;
+                }
+            }
+        }
+
+        if(dadosAccionar==0){
+            terminarPartida=true;
+        }
+
+        if(arrayList_dadosActivados.size()==1){
+            if(arrayList_dadosActivados.get(0).getCara()== 1||
+                    arrayList_dadosActivados.get(0).getCara()==2 ||
+                    arrayList_dadosActivados.get(0).getCara()==3){
+                terminarPartida=true;
+            }
+        }
+
+        if(terminarPartida==true){
+            if(numeroDragon>0){
+                puntaje=0;
+            }
+
+            for(Dado elemento:arrayList_dadosActivados){
+                if(elemento.getCara()==6){
+                    numero42++;
+                    if(numero42==1){
+                        puntaje+=1;
+                    }else {
+                        puntaje+=numero42;
+                    }
+                }
+            }
+        }
+
+    }
 
     public void validarBotonesAccionados(int posicionArrayDadosActivados) {
 //relacionar boton con su posicion en array_dadosActivados, su cara y el tipo de panel (1:activados)
