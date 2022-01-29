@@ -115,9 +115,9 @@ public class GUI extends JFrame {
 
         botonAyuda=new JButton();
         botonAyuda.addActionListener(escucha);
-        imageAyuda = new ImageIcon(getClass().getResource("/recursos/bAyuda.png"));
+        imageAyuda = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/bAyuda.png")));
         botonAyuda.setIcon(new ImageIcon(imageAyuda.getImage().getScaledInstance(45,45, Image.SCALE_SMOOTH)));
-        //botonAyuda.setBorderPainted(false);
+        botonAyuda.setBorderPainted(false);
         botonAyuda.setFocusPainted(false);
         botonAyuda.setContentAreaFilled(false);
         panelEstadoDeJuego.add(botonAyuda,BorderLayout.WEST);
@@ -434,7 +434,7 @@ public class GUI extends JFrame {
     private class ImagenFondo extends JPanel{
 
         public void paint(Graphics img){
-            imagenFrame= new ImageIcon(getClass().getResource("/recursos/imagenesDeisy/Blue_galaxy.jpg"));
+            imagenFrame= new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/imagenesDeisy/Blue_galaxy.jpg")));
             img.drawImage(imagenFrame.getImage(),0,0,getWidth(),getHeight(),this);
             setOpaque(false);
             super.paint(img);
@@ -477,7 +477,7 @@ public class GUI extends JFrame {
 
             if(e.getSource()==botonAyuda){
 
-                imgInstrucciones = new ImageIcon(getClass().getResource("/recursos/instrucciones.jpg"));
+                imgInstrucciones = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/instrucciones.jpg")));
                 imgInstrucciones =new ImageIcon(imgInstrucciones.getImage().getScaledInstance(450,350,
                         Image.SCALE_SMOOTH));
                 panelGuia = new JPanel();
