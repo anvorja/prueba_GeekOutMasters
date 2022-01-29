@@ -1,5 +1,5 @@
 package myProyect;
-
+//
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,16 +25,16 @@ public class GUI extends JFrame {
 
     private Header headerProject;
     private JLabel labelBoton1U,labelBoton2U,labelBoton3U,labelBoton4U,labelBoton5U,labelBoton6U,labelBoton7U,
-    labelBoton8U,labelBoton9U,labelBoton10U, jlabelInicio, labelBoton8,labelBoton9, labelBoton10;
+            labelBoton8U,labelBoton9U,labelBoton10U, jlabelInicio, labelBoton8,labelBoton9, labelBoton10, labelRonda, labelPuntos;
     private JTextArea guia;
     private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8A, boton9A, boton10A,
-    botonAyuda;
+            botonAyuda;
     private JPanel  panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
             panelResultados, panelEstadoDeJuego, panelGuia;
     //auxiliares
     private int opcionPanel, caraBotonUsado, contador, indiceJBoton2, indiceJBoton3, indiceJBoton4, indiceJBoton5,
             indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
-            indiceJBoton10A;
+            indiceJBoton10A, puntos;
     private boolean destruir,flag;
 
 
@@ -102,15 +102,21 @@ public class GUI extends JFrame {
         separator.setBackground(Color.LIGHT_GRAY);
     }
     public void crearPanelEstadoDeJuego(){
+
         panelEstadoDeJuego= new JPanel();
         panelEstadoDeJuego.setPreferredSize(new Dimension(200, 350));
         tituloPanel=BorderFactory.createTitledBorder("Estado de Juego");
         tituloPanel.setTitleColor(Color.WHITE);
         panelEstadoDeJuego.setBorder(tituloPanel);
 
+        labelRonda =new JLabel("Ronda: ");
+        labelPuntos = new JLabel("Puntos: " + puntos);
+        panelEstadoDeJuego.add(labelRonda);
+        panelEstadoDeJuego.add(labelPuntos);
+
         panelEstadoDeJuego.setOpaque(false);
 
-        this.add(panelEstadoDeJuego, BorderLayout.NORTH);
+        this.add(panelEstadoDeJuego, BorderLayout.SOUTH);
 
 
         botonAyuda=new JButton();
@@ -181,7 +187,7 @@ public class GUI extends JFrame {
 
         panelInicio.add(iniciar, BorderLayout.PAGE_END);
 
-        }
+    }
 
     public void crearPanelResultados() {
 
@@ -322,10 +328,11 @@ public class GUI extends JFrame {
 
         if(caraBotonUsado==5){
             if(contador<3){
-            contador++;
-            activarDadoInactivo();
+                contador++;
+                activarDadoInactivo();
+            }
         }
-        }
+
     }
 
     public void probarEnConsolaInicio(){
@@ -349,8 +356,8 @@ public class GUI extends JFrame {
     public void probarEnConsola(){
 
         /*
-        *Prueba por consola
-        */
+         *Prueba por consola
+         */
         System.out.println("------------");
         System.out.println("->ACTIVADOS");
         for (int i=0;i<modelClass.getDadosActivados().size();i++) {
@@ -507,7 +514,7 @@ public class GUI extends JFrame {
                     if (e.getSource() == boton1) {
 
                         if ((destruir) ||((modelClass.getDadosActivados().get(0).getCara() != 4) && (modelClass.getDadosActivados().get(0).getCara() != 6)&& (modelClass.getDadosActivados().get(0).getCara() != 5))
-                        ||((modelClass.getDadosActivados().get(0).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
+                                ||((modelClass.getDadosActivados().get(0).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
 
                             System.out.println("Boton 1");
                             modelClass.validarBotonesAccionados(0);
@@ -582,7 +589,7 @@ public class GUI extends JFrame {
 
                             System.out.println("Boton 3");
                             modelClass.validarBotonesAccionados(indiceJBoton3);
-                                                   imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
+                            imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                                     "/recursos/imagenesDeisy/pequeñas/" + modelClass.getDadosActivados().get(indiceJBoton3).getCara() +
                                             ".png")));
                             labelBoton3U= new JLabel(imageDado);
@@ -799,6 +806,8 @@ public class GUI extends JFrame {
                             probarEnConsola();
                         }
                     }
+
+
                     revalidate();
                     repaint();
                 }
@@ -1046,6 +1055,7 @@ public class GUI extends JFrame {
                             }
                         }
                     }
+
                     revalidate();
                     repaint();
                 }
