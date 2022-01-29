@@ -108,15 +108,6 @@ public class ModelClass {
                 if(elementoDeLista.getCara()==4){
                     numeroDragon++;
                 }
-                if(elementoDeLista.getCara()==6){
-                     numero42++;
-                     if(numero42==1){
-                         puntaje=1;
-                     }else {
-                         puntaje+=numero42;
-                     }
-
-                }
             }
         }
 
@@ -136,8 +127,18 @@ public class ModelClass {
             if(numeroDragon>0){
                 puntaje=0;
             }
-        }
 
+            for(Dado elemento:arrayList_dadosActivados){
+                if(elemento.getCara()==6){
+                    numero42++;
+                    if(numero42==1){
+                        puntaje+=1;
+                    }else {
+                        puntaje+=numero42;
+                    }
+                }
+            }
+        }
 
     }
 

@@ -117,7 +117,7 @@ public class GUI extends JFrame {
         botonAyuda.addActionListener(escucha);
         imageAyuda = new ImageIcon(getClass().getResource("/recursos/bAyuda.png"));
         botonAyuda.setIcon(new ImageIcon(imageAyuda.getImage().getScaledInstance(45,45, Image.SCALE_SMOOTH)));
-        //botonAyuda.setBorderPainted(false);
+        botonAyuda.setBorderPainted(false);
         botonAyuda.setFocusPainted(false);
         botonAyuda.setContentAreaFilled(false);
         panelEstadoDeJuego.add(botonAyuda,BorderLayout.WEST);
