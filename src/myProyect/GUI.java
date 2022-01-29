@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.plaf.ColorUIResource;
 
 /**
  * This class is designed in order to view class ModelClas
@@ -16,15 +18,19 @@ import javax.swing.*;
 public class GUI extends JFrame {
 
     // creamos constante de clase
-    private static final String MENSAJE_INICIO = "Bienvenido a Geek Out";
+    private static final String MENSAJE=" Tienes un total de 5 rondas para ganar:\n " +
+            "Si obtienes 30 puntos antes o incluso, en la 5 ronda, ganas la partida\n " +
+            "Si terminada la 5 ronda y aún no has obtenido los 30 puntos, la partida se dará por perdida\n " +
+            "Recuerda que cada dado tiene su propia acción:\n";
 
     private Header headerProject;
     private JLabel labelBoton1U,labelBoton2U,labelBoton3U,labelBoton4U,labelBoton5U,labelBoton6U,labelBoton7U,
-    labelBoton8U,labelBoton9U,labelBoton10U, jlabelInicio;
-    private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8,
-            boton9, boton10, boton8A, boton9A, boton10A;
-    private JPanel panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
-            panelResultados, panelLanzar;
+    labelBoton8U,labelBoton9U,labelBoton10U, jlabelInicio, labelBoton8,labelBoton9, labelBoton10;
+    private JTextArea guia;
+    private JButton iniciar, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8A, boton9A, boton10A,
+    botonAyuda;
+    private JPanel  panelInicio, panelDadosUtilizados, panelDadosActivados, panelDadosInactivos,
+            panelResultados, panelEstadoDeJuego, panelGuia;
     //auxiliares
     private int opcionPanel, caraBotonUsado, contador, indiceJBoton2, indiceJBoton3, indiceJBoton4, indiceJBoton5,
             indiceJBoton6, indiceJBoton7,indiceJBoton8A,indiceJBoton9A,
@@ -32,13 +38,15 @@ public class GUI extends JFrame {
     private boolean destruir,flag;
 
 
-    private ImageIcon imageDado, imagenInicio;
+    private ImageIcon imageDado, imagenInicio, imagenFrame, imageAyuda, imgInstrucciones;
+    private TitledBorder tituloPanel;
     private JTextArea mensajesSalida, resultadoDados;
     private JSeparator separator;
     private Escucha escucha;
     private ModelClass modelClass;
 
     public GUI() {
+        this.setContentPane(new ImagenFondo());
         initGUI();
 
         // Default JFrame configuration
@@ -48,6 +56,7 @@ public class GUI extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
     private void initGUI() {
@@ -58,26 +67,32 @@ public class GUI extends JFrame {
         modelClass = new ModelClass();
 
         // Set up JComponents
-        crearPanelInicio();
+        UIManager UI= new UIManager();
+        UI.put("OptionPane.background",new ColorUIResource(26,42,96));
+        crearInicio();
 
     }
-    public void crearPanelInicio(){
+    public void crearInicio(){
         imagenInicio= new ImageIcon(getClass().getResource("/recursos/imagenesDeisy/header.jpg"));
+        imagenInicio= new ImageIcon(imagenInicio.getImage().getScaledInstance(950,600, Image.SCALE_SMOOTH));
         jlabelInicio= new JLabel(imagenInicio);
         panelInicio= new JPanel();
-        panelInicio.setPreferredSize(new Dimension(951, 632));
-        panelInicio.add(jlabelInicio);
-        this.add(panelInicio, BorderLayout.CENTER);
+        panelInicio.setOpaque(false);
+        //panelInicio.setSize(650,800);
+
+        panelInicio.add(jlabelInicio,BorderLayout.PAGE_START);
         crearBotonLanzar();
+        this.add(panelInicio);
+
     }
     public void llamarPanelesJuego(){
         this.remove(panelInicio);
 
-        headerProject = new Header("Gekk Out Masters", Color.BLACK);
-        this.add(headerProject, BorderLayout.NORTH);
-
+        //headerProject = new Header("Geek Out Masters", Color.BLACK);
+        //this.add(headerProject, BorderLayout.NORTH);
+        crearPanelEstadoDeJuego();
         crearPanelDadosActivados();
-        crearDadosInactivos();
+        crearPanelDadosInactivos();
         crearPanelDadosUtilizados();
         //crearBotonLanzar();
         crearPanelResultados();
@@ -85,6 +100,29 @@ public class GUI extends JFrame {
         separator = new JSeparator();
         separator.setPreferredSize(new Dimension(320, 7));
         separator.setBackground(Color.LIGHT_GRAY);
+    }
+    public void crearPanelEstadoDeJuego(){
+        panelEstadoDeJuego= new JPanel();
+        panelEstadoDeJuego.setPreferredSize(new Dimension(200, 350));
+        tituloPanel=BorderFactory.createTitledBorder("Estado de Juego");
+        tituloPanel.setTitleColor(Color.WHITE);
+        panelEstadoDeJuego.setBorder(tituloPanel);
+
+        panelEstadoDeJuego.setOpaque(false);
+
+        this.add(panelEstadoDeJuego, BorderLayout.NORTH);
+
+
+        botonAyuda=new JButton();
+        botonAyuda.addActionListener(escucha);
+        imageAyuda = new ImageIcon(getClass().getResource("/recursos/bAyuda.png"));
+        botonAyuda.setIcon(new ImageIcon(imageAyuda.getImage().getScaledInstance(45,45, Image.SCALE_SMOOTH)));
+        //botonAyuda.setBorderPainted(false);
+        botonAyuda.setFocusPainted(false);
+        botonAyuda.setContentAreaFilled(false);
+        panelEstadoDeJuego.add(botonAyuda,BorderLayout.WEST);
+
+
     }
 
     public void crearPanelDadosActivados() {
@@ -100,20 +138,26 @@ public class GUI extends JFrame {
         contador=0;
 
         panelDadosActivados = new JPanel();
-        panelDadosActivados.setPreferredSize(new Dimension(400, 400));
-        panelDadosActivados.setBorder(
-                BorderFactory.createTitledBorder("Dados Activados"));
+        panelDadosActivados.setPreferredSize(new Dimension(750, 350));
+        tituloPanel=BorderFactory.createTitledBorder("Dados Activados");
+        tituloPanel.setTitleColor(Color.WHITE);
+        panelDadosActivados.setBorder(tituloPanel);
+        panelDadosActivados.setOpaque(false);
 
-        this.add(panelDadosActivados, BorderLayout.NORTH);
+        this.add(panelDadosActivados,BorderLayout.NORTH);
     }
 
 
-    public void crearDadosInactivos() {
+    public void crearPanelDadosInactivos() {
 
         // dados inactivos
         panelDadosInactivos = new JPanel();
-        panelDadosInactivos.setPreferredSize(new Dimension(300, 180));
-        panelDadosInactivos.setBorder(BorderFactory.createTitledBorder("Dados Inactivos"));
+        panelDadosInactivos.setPreferredSize(new Dimension(300, 250));
+        tituloPanel=BorderFactory.createTitledBorder("Dados Inactivos");
+        tituloPanel.setTitleColor(Color.WHITE);
+        panelDadosInactivos.setBorder(tituloPanel);
+
+        panelDadosInactivos.setOpaque(false);
 
         this.add(panelDadosInactivos, BorderLayout.WEST);
     }
@@ -122,7 +166,10 @@ public class GUI extends JFrame {
 
         panelDadosUtilizados = new JPanel();
         panelDadosUtilizados.setPreferredSize(new Dimension(350, 250));
-        panelDadosUtilizados.setBorder(BorderFactory.createTitledBorder("Dados Utilizados"));
+        tituloPanel=BorderFactory.createTitledBorder("Dados Utilizados");
+        tituloPanel.setTitleColor(Color.WHITE);
+        panelDadosUtilizados.setBorder(tituloPanel);
+        panelDadosUtilizados.setOpaque(false);
 
         this.add(panelDadosUtilizados, BorderLayout.CENTER);
     }
@@ -131,17 +178,19 @@ public class GUI extends JFrame {
 
         iniciar = new JButton("Inciar");
         iniciar.addActionListener(escucha);
-        panelLanzar = new JPanel();
-        panelLanzar.add(iniciar);
-        this.add(panelLanzar, BorderLayout.PAGE_END);
+
+        panelInicio.add(iniciar, BorderLayout.PAGE_END);
 
         }
 
     public void crearPanelResultados() {
 
         panelResultados = new JPanel();
-        panelResultados.setBorder(BorderFactory.createTitledBorder("Puntuación"));
-        panelResultados.setPreferredSize(new Dimension(300, 180));
+        tituloPanel=BorderFactory.createTitledBorder("Puntuacion");
+        tituloPanel.setTitleColor(Color.WHITE);
+        panelResultados.setBorder(tituloPanel);
+        panelResultados.setPreferredSize(new Dimension(300, 250));
+        panelResultados.setOpaque(false);
         this.add(panelResultados, BorderLayout.EAST);
     }
 
@@ -228,39 +277,27 @@ public class GUI extends JFrame {
 
     public void meterDadosInactivos(ArrayList<Dado> reciboCarasBotonesInactivos){
 
-        boton8A = new JButton();
-        boton8A.addActionListener(escucha);
-        boton8A.setPreferredSize(new Dimension(69, 60));
-        boton8A.setContentAreaFilled(false);
-        boton8A.setBorderPainted(false);
+        labelBoton8 = new JLabel();
         imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                 "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos.get(0).getCara() +
                         ".png")));
-        boton8A.setIcon(imageDado);
+        labelBoton8.setIcon(imageDado);
 
-        panelDadosInactivos.add(boton8A);
+        panelDadosInactivos.add(labelBoton8);
 
-        boton9A = new JButton();
-        boton9A.addActionListener(escucha);
-        boton9A.setPreferredSize(new Dimension(69, 60));
-        boton9A.setContentAreaFilled(false);
-        boton9A.setBorderPainted(false);
+        labelBoton9 = new JLabel();
         imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                 "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos.get(1).getCara() +
                         ".png")));
-        boton9A.setIcon(imageDado);
-        panelDadosInactivos.add(boton9A);
+        labelBoton9.setIcon(imageDado);
+        panelDadosInactivos.add(labelBoton9);
 
-        boton10A = new JButton();
-        boton10A.addActionListener(escucha);
-        boton10A.setPreferredSize(new Dimension(69, 60));
-        boton10A.setContentAreaFilled(false);
-        boton10A.setBorderPainted(false);
+        labelBoton10 = new JLabel();
         imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                 "/recursos/imagenesDeisy/pequeñas/" + reciboCarasBotonesInactivos.get(2).getCara() +
                         ".png")));
-        boton10A.setIcon(imageDado);
-        panelDadosInactivos.add(boton10A);
+        labelBoton10.setIcon(imageDado);
+        panelDadosInactivos.add(labelBoton10);
 
 
     }
@@ -334,8 +371,12 @@ public class GUI extends JFrame {
 
     public void activarDadoInactivo(){
         if(contador==1){
+            panelDadosInactivos.remove(labelBoton8);
             modelClass.accionarBoton(indiceJBoton8A);
-
+            boton8A = new JButton();
+            boton8A.addActionListener(escucha);
+            boton8A.setContentAreaFilled(false);
+            boton8A.setBorderPainted(false);
             boton8A.setPreferredSize(new Dimension(146, 146));
             System.out.println("actualizó el array de activos");
             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
@@ -348,8 +389,12 @@ public class GUI extends JFrame {
             probarEnConsola();
         }
         else if(contador==2){
+            panelDadosInactivos.remove(labelBoton9);
             modelClass.accionarBoton(indiceJBoton9A);
-
+            boton9A = new JButton();
+            boton9A.addActionListener(escucha);
+            boton9A.setContentAreaFilled(false);
+            boton9A.setBorderPainted(false);
             boton9A.setPreferredSize(new Dimension(146, 146));
             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                     "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton9A).getCara() +
@@ -361,8 +406,12 @@ public class GUI extends JFrame {
             probarEnConsola();
         }
         else if(contador==3){
+            panelDadosInactivos.remove(labelBoton10);
             modelClass.accionarBoton(indiceJBoton10A);
-
+            boton10A = new JButton();
+            boton10A.addActionListener(escucha);
+            boton10A.setContentAreaFilled(false);
+            boton10A.setBorderPainted(false);
             boton10A.setPreferredSize(new Dimension(146, 146));
             imageDado = new ImageIcon(Objects.requireNonNull(getClass().getResource(
                     "/recursos/imagenesDeisy/medianas 146/" + modelClass.getDadosActivados().get(indiceJBoton10A).getCara() +
@@ -382,6 +431,17 @@ public class GUI extends JFrame {
         EventQueue.invokeLater(() -> { GUI miProjectGUI = new GUI(); });
     }
 
+    private class ImagenFondo extends JPanel{
+
+        public void paint(Graphics img){
+            imagenFrame= new ImageIcon(getClass().getResource("/recursos/imagenesDeisy/Blue_galaxy.jpg"));
+            img.drawImage(imagenFrame.getImage(),0,0,getWidth(),getHeight(),this);
+            setOpaque(false);
+            super.paint(img);
+        }
+    }
+
+
     // escuchas
     private class Escucha implements ActionListener {
 
@@ -392,7 +452,7 @@ public class GUI extends JFrame {
 
                 llamarPanelesJuego();
                 //inhabilitar boton
-                iniciar.setEnabled(false);
+                remove(iniciar);
 
                 meterBotonesActivos(modelClass.getDadosActivados());
 
@@ -412,6 +472,30 @@ public class GUI extends JFrame {
                 caraBotonUsado=0;
                 revalidate();
                 repaint();
+
+            }
+
+            if(e.getSource()==botonAyuda){
+
+                imgInstrucciones = new ImageIcon(getClass().getResource("/recursos/instrucciones.jpg"));
+                imgInstrucciones =new ImageIcon(imgInstrucciones.getImage().getScaledInstance(450,350,
+                        Image.SCALE_SMOOTH));
+                panelGuia = new JPanel();
+                panelGuia.setBackground(null);
+                panelGuia.setPreferredSize(new Dimension(460,500));
+                panelGuia.add(new JLabel("INSTRUCCIONES"));
+
+                guia= new JTextArea(6,12);
+                guia.setSize(450,450);
+                guia.setOpaque(false);
+                guia.setLineWrap(true);
+                guia.setWrapStyleWord(true);
+                guia.setText(MENSAJE);
+
+                panelGuia.add(guia);
+                panelGuia.add(new JLabel(imgInstrucciones));
+                JOptionPane.showMessageDialog(null, panelGuia);
+
 
             }
 
