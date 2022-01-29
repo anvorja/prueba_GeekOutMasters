@@ -183,7 +183,7 @@ public class ModelClass {
                 eliminarElementoDeArrayDadosInactivos();
                 System.out.println("activaste un dado");
 
-                //prueba en consola
+
                 for (Dado arrayList_dadosActivado : arrayList_dadosActivados) {
                     System.out.println(arrayList_dadosActivado.getNameFace());
                 }
@@ -192,6 +192,7 @@ public class ModelClass {
 
     }
 
+    //prueba en CONSOLA
     public void ramas(){
         int x=19;
     }
