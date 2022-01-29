@@ -506,7 +506,8 @@ public class GUI extends JFrame {
                 case 1 -> {
                     if (e.getSource() == boton1) {
 
-                        if ((destruir) || ((modelClass.getDadosActivados().get(0).getCara() != 4) && (modelClass.getDadosActivados().get(0).getCara() != 6))) {
+                        if ((destruir) ||((modelClass.getDadosActivados().get(0).getCara() != 4) && (modelClass.getDadosActivados().get(0).getCara() != 6)&& (modelClass.getDadosActivados().get(0).getCara() != 5))
+                        ||((modelClass.getDadosActivados().get(0).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
 
                             System.out.println("Boton 1");
                             modelClass.validarBotonesAccionados(0);
@@ -540,8 +541,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton2) {
-                        if (destruir || modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton2) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton2).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton2).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
 
                             System.out.println("Boton 2");
                             modelClass.validarBotonesAccionados(indiceJBoton2);
@@ -572,9 +575,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton3) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton3) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton3).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton3).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())){
 
                             System.out.println("Boton 3");
                             modelClass.validarBotonesAccionados(indiceJBoton3);
@@ -603,9 +607,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton4) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton4) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton4).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton4).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
 
                             System.out.println("Boton 4");
                             modelClass.validarBotonesAccionados(indiceJBoton4);
@@ -633,9 +638,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton5) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton5) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton5).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton5).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())){
 
                             System.out.println("Boton 5");
                             modelClass.validarBotonesAccionados(indiceJBoton5);
@@ -661,9 +667,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton6) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton6) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton6).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton6).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())){
 
                             System.out.println("Boton 6");
                             modelClass.validarBotonesAccionados(indiceJBoton6);
@@ -689,9 +696,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton7) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton7) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton7).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton7).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
 
                             System.out.println("Boton 7");
                             modelClass.validarBotonesAccionados(indiceJBoton7);
@@ -717,9 +725,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton8A) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 4 &&modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton8A) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton8A).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton8A).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())){
 
                             System.out.println("Boton 8A");
                             modelClass.validarBotonesAccionados(indiceJBoton8A);
@@ -742,9 +751,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton9A) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton9A) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton9A).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton9A).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())){
 
                             System.out.println("Boton 9A");
                             modelClass.validarBotonesAccionados(indiceJBoton9A);
@@ -766,9 +776,10 @@ public class GUI extends JFrame {
                             probarEnConsola();
 
                         }
-                    } else if (e.getSource() == boton10A) {
-                        if (destruir ||
-                                modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 4 && modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 6) {
+                    }
+                    else if (e.getSource() == boton10A) {
+                        if (destruir || ((modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 4) && (modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 6) && (modelClass.getDadosActivados().get(indiceJBoton10A).getCara() != 5))
+                                ||((modelClass.getDadosActivados().get(indiceJBoton10A).getCara() == 5)&& !modelClass.getDadosInactivos().isEmpty())) {
 
                             System.out.println("Boton 10A");
                             modelClass.validarBotonesAccionados(indiceJBoton10A);
